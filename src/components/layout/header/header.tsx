@@ -5,10 +5,10 @@ import Link from "next/link";
 export const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-line bg-ground/80 font-mono transition-all duration-300">
-      <div className="container mx-auto flex  md:h-9 h-10 items-center justify-between  px-5">
+      <div className="container mx-auto flex  md:h-10 h-12 items-center justify-between md:px-6  px-2">
         {/* Logo Estilo Terminal */}
         <Link href="/" className="flex items-center gap-2 group">
-          <span className="md:text-md text-sm font-bold tracking-widest text-accent">
+          <span className="md:text-lg text-sm font-bold tracking-widest text-accent">
             {">"}_ <span className="text-accent">G. Ventieri</span>
           </span>
         </Link>
@@ -19,7 +19,7 @@ export const Header = () => {
             <a
               key={link.label}
               href={link.href}
-              className="text-[10px] font-medium tracking-[0.2em] text-zinc-500 hover:text-zinc-200 transition-colors uppercase"
+              className="text-sm font-medium tracking-[0.2em] text-zinc-500 hover:text-zinc-200 transition-colors uppercase"
             >
               {link.label}
             </a>
