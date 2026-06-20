@@ -12,7 +12,7 @@
   --color-line: rgba(255, 255, 255, 0.08);
 
   /* Hero */
-  --color-hero: #22d3ee;
+  --color-hero: #2aa6f2;
   --gradient-hero: linear-gradient(
     90deg,
     #22d3ee 0%,
@@ -40,7 +40,7 @@
   /* Variáveis do Botão e Menu */
   --paper-bg: #0d1627;
   /* Aumentei para 0.25 para você conseguir enxergar, depois pode diminuir */
-  --paper-border: rgba(23, 106, 120, 0.12);
+  --paper-border: rgba(42, 166, 242, 0.12);
 
   /* Fontes */
   --font-mono:

@@ -15,7 +15,7 @@ export const ActionButton = () => {
     <div className="lg:hidden fixed bottom-8 right-6 z-50">
       <div className="relative flex flex-col items-end">
         {isMenuOpen && (
-          <div className="flex flex-col items-start gap-3  bg-paper border border-paper-border text-[#64748b]   shadow-2xl rounded-lg p-3 mb-4 transition-all duration-300 ease-in-out">
+          <div className="flex flex-col items-start gap-3  bg-paper border border-paper-border text-hero  shadow-2xl rounded-lg p-3 mb-4 transition-all duration-300 ease-in-out">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -36,7 +36,7 @@ export const ActionButton = () => {
         )}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="pointer-events-auto bg-paper border border-paper-border text-[#64748b] 
+          className="pointer-events-auto bg-paper border border-paper-border text-hero
                      rounded-full p-3 shadow-2xl hover:scale-105 active:scale-95 transition-all"
         >
           <div
