@@ -3,7 +3,7 @@
   import "./globals.css";
   import { Header } from "@/components/layout/header/header";
   import { Footer } from "@/components/layout/footer/footer";
-  import { ActionButton } from "@/components/ui/action-button/action-button";
+  import { ActionButton } from "@/components/layout/action-button/action-button";
 
   const geistSans = Geist({
     variable: "--font-geist-sans",
