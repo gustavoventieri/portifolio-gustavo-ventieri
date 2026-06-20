@@ -8,11 +8,32 @@
   /* Panels - Cards e Seções */
   --color-panel: #0d1627;
 
-  /* Accent - Cyan */
-  --color-accent: #22d3ee;
-
-  /* Hairline borders - 8% de opacidade */
+  /* Borders */
   --color-line: rgba(255, 255, 255, 0.08);
+
+  /* Hero */
+  --color-hero: #22d3ee;
+  --gradient-hero: linear-gradient(
+    90deg,
+    #22d3ee 0%,
+    #a78bfa 50%,
+    #f472b6 100%
+  );
+
+  /* Activity */
+  --color-activity: #34d399;
+
+  /* Data Metrics */
+  --color-metrics: #a78bfa;
+
+  /* Projects */
+  --color-projects: #fb923c;
+
+  /* Contact */
+  --color-contact: #f472b6;
+
+  /* Accent padrão do site */
+  --color-accent: var(--color-hero);
 
   /* Fontes */
   --font-mono:
@@ -21,17 +42,25 @@
 }
 
 @theme inline {
-  /* Mapeamento das cores para o Tailwind */
+  /* Cores */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-panel: var(--color-panel);
-  --color-accent: var(--color-accent);
   --color-line: var(--color-line);
 
+  --color-accent: var(--color-accent);
+
+  --color-hero: var(--color-hero);
+  --color-activity: var(--color-activity);
+  --color-metrics: var(--color-metrics);
+  --color-projects: var(--color-projects);
+  --color-contact: var(--color-contact);
+
+  /* Fontes */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  /* Adicionando uma animação de pulso customizada para o status "open_to_work" */
+  /* Animações */
   @keyframes terminal-pulse {
     0%,
     100% {
@@ -41,6 +70,7 @@
       opacity: 0.4;
     }
   }
+
   --animate-terminal-pulse: terminal-pulse 2s cubic-bezier(0.4, 0, 0.6, 1)
     infinite;
 }
@@ -54,20 +84,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Textura sutil de "Scanlines" para o efeito CRT mencionado no plano */
+/* Scanlines */
 body::before {
-  content: " ";
-  fixed: top left;
-  width: 100%;
-  height: 100%;
+  content: "";
+  position: fixed;
+  inset: 0;
   background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%);
   background-size: 100% 4px;
-  z-index: 9999;
   pointer-events: none;
   opacity: 0.3;
+  z-index: 9999;
 }
 
-/* Ajuste fino para seleções de texto */
+/* Seleção */
 ::selection {
   background-color: var(--color-accent);
   color: var(--background);

@@ -1,20 +1,26 @@
-"use client";
-import { navLinks } from "@/constraints/header-content";
+import { navLinks } from "@/constants/header-content";
+import { Terminal } from "lucide-react";
 import Link from "next/link";
 
 export const Header = () => {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-line bg-ground/80 font-mono transition-all duration-300">
+    <header className="sticky top-0 z-50 w-full border-b border-line bg-background font-mono transition-all duration-300">
       <div className="container mx-auto flex  md:h-10 h-12 items-center justify-between md:px-6  px-2">
-        {/* Logo Estilo Terminal */}
         <Link href="/" className="flex items-center gap-2 group">
-          <span className="md:text-lg text-sm font-bold tracking-widest text-accent">
-            {">"}_ <span className="text-accent">G. Ventieri</span>
-          </span>
+          <div className="flex items-center gap-2">
+            <Terminal className="text-accent w-5 h-5" />
+            <span className=" flex xl:hidden md:text-md  text-xs font-bold tracking-[0.2em] text-accent">
+              G. Ventieri
+            </span>
+
+            <span className="xl:flex hidden xl:text-[16px] font-bold tracking-widest text-accent">
+              Gustavo Ventieri
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Navigation - Centralizada/Direita */}
-        <nav className="hidden md:flex items-center gap-4">
+        <nav className="hidden lg:flex items-center gap-4">
           {navLinks.map((link) => (
             <a
               key={link.label}
