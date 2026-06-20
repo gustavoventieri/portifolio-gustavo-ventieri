@@ -2,7 +2,7 @@ import { Cpu } from "lucide-react";
 
 export const Footer = () => {
   return (
-    <footer className="w-full sticky border-t border-line bg-background py-3 font-mono">
+    <footer className="w-full  border-t border-line bg-background py-3 font-mono">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-6 gap-4">
         {/* Esquerda: Copyright e Direitos */}
         <div className="text-[12px] text-zinc-500 ">

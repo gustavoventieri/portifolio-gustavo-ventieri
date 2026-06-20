@@ -15,18 +15,18 @@ export const ActionButton = () => {
     <div className="lg:hidden fixed bottom-8 right-6 z-50">
       <div className="relative flex flex-col items-end">
         {isMenuOpen && (
-          <div className="flex flex-col items-start gap-3 bg-[#060e4d]  shadow-2xl rounded-lg p-3 mb-4 transition-all duration-300 ease-in-out">
+          <div className="flex flex-col items-start gap-3  bg-paper border border-paper-border text-[#64748b]   shadow-2xl rounded-lg p-3 mb-4 transition-all duration-300 ease-in-out">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="font-mono text-sm tracking-widest hover:text-accent transition-colors"
-                onClick={() => setIsMenuOpen(false)} 
+                className="font-mono text-sm  hover:text-accent transition-colors"
+                onClick={() => setIsMenuOpen(false)}
               >
                 <div className="flex gap-3">
                   <link.icon
                     size={16}
-                    className="text-muted-foreground transition-colors mt-0.5" 
+                    className="text-muted-foreground transition-colors mt-0.5"
                   />
                   {link.label}
                 </div>
@@ -34,17 +34,13 @@ export const ActionButton = () => {
             ))}
           </div>
         )}
-
         <button
-          onClick={toggleMenu}
-          className="pointer-events-auto bg-[#060e4d] rounded-full p-3 shadow-2xl hover:scale-105 active:scale-95 transition-all"
-          aria-expanded={isMenuOpen}
-          aria-label="Toggle navigation menu"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="pointer-events-auto bg-paper border border-paper-border text-[#64748b] 
+                     rounded-full p-3 shadow-2xl hover:scale-105 active:scale-95 transition-all"
         >
           <div
-            className={`transition-transform duration-300 ease-in-out ${
-              isMenuOpen ? "rotate-180" : "rotate-0"
-            }`}
+            className={`transition-transform duration-300 ${isMenuOpen ? "rotate-180" : "rotate-0"}`}
           >
             {isMenuOpen ? <X size={18} /> : <Home size={18} />}
           </div>
