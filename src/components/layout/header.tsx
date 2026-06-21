@@ -5,11 +5,11 @@ import Link from "next/link";
 export const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-line bg-background font-mono transition-all duration-300">
-      <div className="container mx-auto flex  md:h-10 h-12 items-center justify-between md:px-6  px-2">
+      <div className="container mx-auto flex   h-15 items-center justify-between md:px-6  px-2">
         <Link href="/" className="flex items-center gap-2 group">
           <div className="flex items-center gap-2">
             <Terminal className="text-accent w-5 h-5" />
-            <span className=" flex xl:hidden md:text-md  text-xs font-bold tracking-[0.2em] text-accent">
+            <span className=" flex xl:hidden md:text-md  text-[12px] font-bold tracking-[0.2em] text-accent">
               G. Ventieri
             </span>
 
@@ -25,7 +25,7 @@ export const Header = () => {
             <a
               key={link.label}
               href={link.href}
-              className="text-sm font-medium tracking-[0.2em] text-zinc-500 hover:text-zinc-200 transition-colors uppercase"
+              className="text-[14px] font-medium tracking-[0.2em] text-zinc-500 hover:text-zinc-200 transition-colors uppercase"
             >
               {link.label}
             </a>
@@ -40,7 +40,7 @@ export const Header = () => {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
             </span>
             <span className="text-[12px] tracking-widest text-accent lowercase">
-              open_to_work
+              open to work
             </span>
           </div>
         </div>
