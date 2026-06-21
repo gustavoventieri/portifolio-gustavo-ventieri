@@ -1,4 +1,5 @@
 "use client";
+import { ContentHeader } from "@/components/ui/content-header";
 import { contactLinks } from "@/constants/contact-links";
 import { ChevronRight } from "lucide-react";
 
@@ -9,25 +10,11 @@ export const Contact = () => {
         <div className="flex flex-col lg:flex-row justify-between items-start gap-12 w-full">
           {/* LADO ESQUERDO: TEXTO */}
           <div className="max-w-md lg:pt-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="h-[1px] w-8 bg-[#f472b6]/50"></div>
-              <span className="text-[10px] uppercase tracking-[0.3em] text-[#f472b6] font-mono">
-                Get in touch
-              </span>
-            </div>
-
+            <ContentHeader text={"Get in Touch"} variant="blue" />
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.1]">
               {"Let's build"}
               <br />
-              <span
-                className="bg-clip-text text-transparent"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(135deg, #f472b6 0%, #a78bfa 100%)",
-                }}
-              >
-                something.
-              </span>
+              <span className="bg-clip-text text-hero">together.</span>
             </h2>
 
             <p className="text-base text-[#64748b] leading-relaxed max-w-sm font-sans">
