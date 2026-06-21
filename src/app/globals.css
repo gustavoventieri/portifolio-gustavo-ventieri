@@ -90,6 +90,16 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: var(--background); /* A cor escura #07101f */
+
+  /* Aplicando o Grid */
+  background-image:
+    linear-gradient(rgba(42, 166, 242, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(42, 166, 242, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
 /* Scanlines */
