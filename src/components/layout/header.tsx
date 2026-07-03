@@ -5,7 +5,7 @@ import Link from "next/link";
 export const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-line bg-background font-mono transition-all duration-300">
-      <div className="container mx-auto flex   h-15 items-center justify-between md:px-6  px-2">
+      <div className="container mx-auto flex   h-15 items-center justify-between px-8 lg:px-10 xl:px-47 ">
         <Link href="/" className="flex items-center gap-2 group">
           <div className="flex items-center gap-2">
             <Terminal className="text-accent w-5 h-5" />

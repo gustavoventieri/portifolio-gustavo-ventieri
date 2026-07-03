@@ -8,9 +8,8 @@ export const Contact = () => {
     <section id="contact" className="w-full">
       <div className="container mx-auto   ">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-12 w-full">
-          {/* LADO ESQUERDO: TEXTO */}
           <div className="max-w-md lg:pt-2">
-            <ContentHeader text={"Get in Touch"} variant="blue" />
+            <ContentHeader text={"Get in Touch"} variant="purple" />
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.1]">
               {"Let's build"}
               <br />
@@ -25,7 +24,6 @@ export const Contact = () => {
             </p>
           </div>
 
-          {/* LADO DIREITO: CARDS */}
           <div className="w-full lg:w-105 space-y-2.5">
             {contactLinks.map(({ icon: Icon, label, href, sub, color }) => (
               <a
@@ -33,13 +31,8 @@ export const Contact = () => {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-4 p-4 rounded-sm transition-all duration-300 border border-white/3 hover:border-white/10"
-                style={{
-                  backgroundColor: "#0d1627",
-                  // Variável CSS para usar no hover via Tailwind se quiser,
-                  // mas manteremos o estilo dinâmico para os ícones
-                }}
-                // Efeito de brilho sutil no hover baseado na cor do item
+                className="group flex items-center gap-4 p-4 rounded-sm transition-all duration-300 border border-white/3 hover:border-white/10 bg-paper"
+                style={{}}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = `${color}40`;
                   e.currentTarget.style.boxShadow = `0 0 20px ${color}10`;

@@ -16,11 +16,11 @@ export const contactLinks: ContactLink[] = [
     label: "ventierigustavo@gmail.com",
     href: "mailto:ventierigustavo@gmail.com",
     sub: "email",
-    color: "#22d3ee", // Ciano
+    color: "#34d399", // Ciano
   },
   {
     icon: FaGithub,
-    label: "github.com/gusstavoventieri",
+    label: "github.com/gustavoventieri",
     href: "https://github.com/gustavoventieri",
     sub: "code",
     color: "#a78bfa", // Violeta
@@ -30,7 +30,7 @@ export const contactLinks: ContactLink[] = [
     label: "linkedin.com/gustavo-ventieri",
     href: "https://www.linkedin.com/in/gustavo-ventieri",
     sub: "network",
-    color: "#34d399", // Esmeralda
+    color: "#22d3ee", // Esmeralda
   },
   {
     icon: Globe,

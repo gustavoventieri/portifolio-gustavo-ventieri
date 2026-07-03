@@ -7,10 +7,9 @@ export const TimelineCard = ({
 }) => {
   return (
     <div
-      className="rounded-[3px] p-3.5 transition-all duration-200 group hover:scale-[1.02]"
+      className="rounded-[3px] p-3.5 transition-all duration-200 group hover:scale-[1.02] bg-paper"
       style={{
         border: `1px solid ${item.color}20`,
-        backgroundColor: "#0d1627",
       }}
     >
       <div
@@ -32,8 +31,8 @@ export const TimelineCard = ({
         {item.tags.map((t) => (
           <span
             key={t}
-            className="text-[8px] px-1.5 py-0.5 rounded-xs text-[#64748b]"
-            style={{ border: `1px solid ${item.color}18` }}
+            className={`text-[10px] px-1.5 py-0.5 rounded-xs `}
+            style={{ border: `1px solid ${item.color}70`, color: item.color }}
           >
             {t}
           </span>

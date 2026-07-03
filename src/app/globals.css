@@ -2,11 +2,10 @@
 
 :root {
   /* Ground - Fundo principal */
-  --background: #07101f;
+  --background: #010917;
   --foreground: #ffffff;
 
   /* Panels - Cards e Seções */
-  --color-panel: #0d1627;
 
   /* Borders */
   --color-line: rgba(255, 255, 255, 0.08);
@@ -37,8 +36,7 @@
   /* Accent padrão do site */
   --color-accent: var(--color-hero);
 
-  /* Variáveis do Botão e Menu */
-  --paper-bg: #0d1627;
+  --paper-bg: #061023;
   /* Aumentei para 0.25 para você conseguir enxergar, depois pode diminuir */
   --paper-border: rgba(42, 166, 242, 0.12);
 
@@ -94,10 +92,10 @@ body {
   background-color: var(--background); /* A cor escura #07101f */
 
   /* Aplicando o Grid */
-  background-image:
+  /* background-image:
     linear-gradient(rgba(42, 166, 242, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(42, 166, 242, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
+  background-size: 40px 40px; */
   background-attachment: fixed;
   min-height: 100vh;
 }
@@ -118,4 +116,29 @@ body::before {
 ::selection {
   background-color: var(--color-accent);
   color: var(--background);
+}
+/* Animação para a linha da timeline */
+@keyframes line-flow {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
+}
+
+.animate-line-flow {
+  animation: line-flow 4s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+.animate-shimmer {
+  animation: shimmer 2s infinite linear;
 }
