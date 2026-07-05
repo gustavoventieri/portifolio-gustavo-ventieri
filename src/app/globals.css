@@ -2,7 +2,7 @@
 
 :root {
   /* Ground - Fundo principal */
-  --background: #010917;
+  --background: #030f24;
   --foreground: #ffffff;
 
   /* Panels - Cards e Seções */
@@ -36,7 +36,7 @@
   /* Accent padrão do site */
   --color-accent: var(--color-hero);
 
-  --paper-bg: #061023;
+  --paper-bg: #0d1627;  
   /* Aumentei para 0.25 para você conseguir enxergar, depois pode diminuir */
   --paper-border: rgba(42, 166, 242, 0.12);
 
@@ -92,10 +92,10 @@ body {
   background-color: var(--background); /* A cor escura #07101f */
 
   /* Aplicando o Grid */
-  /* background-image:
+  background-image:
     linear-gradient(rgba(42, 166, 242, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(42, 166, 242, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px; */
+  background-size: 40px 40px;
   background-attachment: fixed;
   min-height: 100vh;
 }
