@@ -20,9 +20,9 @@ export const Certificates = () => {
           {/* Linha Vertical - Grossura de 2px para igualar à foto */}
           {/* Linha Vertical com Animação de Fluxo */}
           <div
-            className="absolute left-13.5 top-2 bottom-0 w-0.5 overflow-hidden"
+            className="absolute left-[53.1px] top-2 bottom-0 w-1 overflow-hidden"
             style={{
-              background: "rgba(30, 41, 59, 0.3)", // Uma cor de fundo mais suave para a trilha
+              background: "rgba(30, 41, 59, 0.7)", // Uma cor de fundo mais suave para a trilha
             }}
           >
             {/* O "Pulso" de luz que desce */}
@@ -95,12 +95,12 @@ export const Certificates = () => {
             ].map((s) => (
               <div
                 key={s.label}
-                className="rounded-md p-4 text-center bg-[#0f172a]/40 border border-white/5 backdrop-blur-sm"
+                className="rounded-md py-3 text-center bg-paper border border-white/5 backdrop-blur-sm"
               >
                 <div className="text-2xl font-bold" style={{ color: s.color }}>
                   {s.value}
                 </div>
-                <div className="text-[8px] text-[#64748b] uppercase tracking-widest mt-1">
+                <div className="text-[8px] text-[#64748b] uppercase tracking-widest mt-1 text-center">
                   {s.label}
                 </div>
               </div>
@@ -108,7 +108,7 @@ export const Certificates = () => {
           </div>
 
           {/* Proficiency Card - flex-1 para preencher altura */}
-          <div className="flex-1 rounded-md p-6 bg-[#0f172a]/40 border border-white/5 backdrop-blur-sm flex flex-col">
+          <div className="flex-1 rounded-md p-6 bg-paper border border-white/5 backdrop-blur-sm flex flex-col">
             <div className="text-[9px] text-[#64748b] uppercase tracking-[0.2em] mb-6 font-bold">
               Domain Proficiency
             </div>
@@ -131,7 +131,7 @@ export const Certificates = () => {
                       {value}%
                     </span>
                   </div>
-                  <div className="h-0.5 bg-white/5 rounded-full overflow-hidden">
+                  <div className="h-0.5 bg-paper rounded-full overflow-hidden">
                     <div
                       className="h-full rounded-full transition-all duration-1000"
                       style={{
@@ -147,7 +147,7 @@ export const Certificates = () => {
           </div>
 
           {/* Studying Card - flex-1 para preencher altura */}
-          <div className="flex-1 rounded-md p-6 bg-[#0f172a]/40 border border-white/5 backdrop-blur-sm">
+          <div className="flex-1 rounded-md p-6 bg-paper border border-white/5 backdrop-blur-sm">
             <div className="text-[9px] text-[#64748b] uppercase tracking-[0.2em] mb-6 font-bold">
               Currently Studying
             </div>
