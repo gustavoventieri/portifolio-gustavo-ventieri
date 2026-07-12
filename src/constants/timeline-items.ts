@@ -1,7 +1,7 @@
 export const timelineItems = [
   {
     id: 1,
-    role: "Full-Stack Development Intern",
+    role: "Full-Stack Development Assistant",
     company: "InPower Br",
     period: "Jan 2026 — Present",
     startYear: "2026",
