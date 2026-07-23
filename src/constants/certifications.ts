@@ -1,6 +1,36 @@
 export const certifications = {
   pt: [
     {
+      date: "2026",
+      title: "Gestão Ágil com Scrum COMPLETO",
+      institution: "Udemy",
+      current: true,
+    },
+    {
+      date: "2026",
+      title: "Aprenda Golang do Zero! Desenvolva uma APLICAÇÃO COMPLETA!",
+      institution: "Udemy",
+      current: false,
+    },
+    {
+      date: "2025",
+      title: "SQL para Análise de Dados: Do básico ao avançado",
+      institution: "Udemy",
+      current: false,
+    },
+    {
+      date: "2025",
+      title: "TOEIC Listening & Reading (780/990 - B2)",
+      institution: "ETS",
+      current: false,
+    },
+    {
+      date: "2025",
+      title: "The Web Developer Bootcamp 2025",
+      institution: "Udemy",
+      current: false,
+    },
+    {
       date: "2024",
       title: "Java com Spring Boot",
       institution: "DIO & Claro",
@@ -25,24 +55,6 @@ export const certifications = {
       current: false,
     },
     {
-      date: "2025",
-      title: "The Git & GitHub Bootcamp",
-      institution: "Udemy",
-      current: false,
-    },
-    {
-      date: "2025",
-      title: "The Web Developer Bootcamp 2025",
-      institution: "Udemy",
-      current: false,
-    },
-    {
-      date: "2025",
-      title: "TOEIC Listening & Reading (780/990 - B2)",
-      institution: "ETS",
-      current: false,
-    },
-    {
       date: "2024",
       title: "Certificado de Publicação de Artigo",
       institution: "FATEC Zona Leste",
@@ -54,9 +66,27 @@ export const certifications = {
 
   en: [
     {
-      date: "2024",
-      title: "Java with Spring Boot",
-      institution: "DIO & Claro",
+      date: "2026",
+      title: "Complete Agile Management with Scrum",
+      institution: "Udemy",
+      current: true,
+    },
+    {
+      date: "2026",
+      title: "Learn Golang from Scratch! Build a Complete Application!",
+      institution: "Udemy",
+      current: false,
+    },
+    {
+      date: "2025",
+      title: "SQL for Data Analysis: From Beginner to Advanced",
+      institution: "Udemy",
+      current: false,
+    },
+    {
+      date: "2025",
+      title: "TOEIC Listening & Reading (780/990 - B2)",
+      institution: "ETS",
       current: false,
     },
     {
@@ -75,24 +105,6 @@ export const certifications = {
       date: "2024",
       title: "Agile Explorer",
       institution: "IBM",
-      current: false,
-    },
-    {
-      date: "2025",
-      title: "The Git & GitHub Bootcamp",
-      institution: "Udemy",
-      current: false,
-    },
-    {
-      date: "2025",
-      title: "The Web Developer Bootcamp 2025",
-      institution: "Udemy",
-      current: false,
-    },
-    {
-      date: "2025",
-      title: "TOEIC Listening & Reading (780/990 - B2)",
-      institution: "ETS",
       current: false,
     },
     {

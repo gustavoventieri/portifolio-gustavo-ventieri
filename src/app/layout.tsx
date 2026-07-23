@@ -4,9 +4,9 @@ import { LanguageProvider } from "@/contexts/language-contexts";
 import { App } from "./app";
 
 export const metadata: Metadata = {
-  title: "Gustavo Ventieri | Full Stack Developer & Data Analyst",
+  title: "Gustavo Ventieri | Backend Software Enginnner & Data Analyst",
   description:
-    "Full Stack Developer and Data Analyst focused on building scalable web applications and transforming complex data into actionable insights.",
+    "Backend Software Enginnner and Data Analyst focused on building scalable web applications and transforming complex data into actionable insights.",
   keywords: [
     "Full Stack Developer",
     "Data Analyst",
@@ -14,10 +14,11 @@ export const metadata: Metadata = {
     "Back End Development",
     "Data Analysis",
     "Web Development",
+    "Backend Software Enginnner",
   ],
   authors: [{ name: "Gustavo Ventieri" }],
   openGraph: {
-    title: "Gustavo Ventieri | Full Stack Developer & Data Analyst",
+    title: "Gustavo Ventieri | Backend Software Enginnner & Data Analyst",
     description:
       "Crafting robust full-stack solutions with a data-driven mindset.",
     type: "website",

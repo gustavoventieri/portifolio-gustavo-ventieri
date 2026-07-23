@@ -1,17 +1,22 @@
+"use client";
 import { ContentHeader } from "@/components/ui/content-header";
 import { TimelineCard } from "@/components/ui/timeline-card";
 import { timelineItems } from "@/constants/timeline-items";
+import { useLanguage } from "@/contexts/language-contexts";
 
 export const Experience = () => {
+  const { language } = useLanguage();
+  const languageTimelineItems = timelineItems[language];
+
   return (
     <div>
       <div className="relative">
         <ContentHeader text={"Experience"} variant="purple" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-0 relative items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-0 relative items-center">
           <div className="md:hidden absolute left-4 top-0 h-full w-0.5 bg-slate-800" />
 
-          {timelineItems.map((item, i) => {
+          {languageTimelineItems.map((item, i) => {
             const isAbove = i % 2 === 0;
 
             return (

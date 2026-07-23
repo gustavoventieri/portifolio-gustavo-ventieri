@@ -5,7 +5,7 @@ import { Experience } from "./components/experience";
 
 export default function Home() {
   return (
-    <div className="container mx-auto px-4 md:px-10 lg:px-30 ">
+    <div className=" px-6 lg:px-28 md:px-20 ">
       <section id="about" className="md:pt-28 pt-15 pb-15 md:pb-20 w-full">
         <About />
       </section>

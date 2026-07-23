@@ -8,6 +8,28 @@ export const Certificates = () => {
   const { language } = useLanguage();
   const certs = certifications[language];
 
+  const totalCertificates = certs.length;
+  const currentCertificates = certs.filter((c) => c.current);
+  const institutions = new Set(certs.map((c) => c.institution));
+
+  const summary = [
+    {
+      value: totalCertificates.toString(),
+      label: language === "pt" ? "certificados" : "certificates",
+      color: "#fbbf24",
+    },
+    {
+      value: currentCertificates.length.toString(),
+      label: language === "pt" ? "em andamento" : "in progress",
+      color: "#22d3ee",
+    },
+    {
+      value: institutions.size.toString(),
+      label: language === "pt" ? "instituições" : "institutions",
+      color: "#a78bfa",
+    },
+  ];
+
   return (
     <div className="w-full">
       <div className="flex items-center gap-2.5 mb-10">
@@ -37,14 +59,12 @@ export const Certificates = () => {
           <div className="space-y-0">
             {certs.map((cert, i) => (
               <div key={i} className="flex items-start group relative">
-                {/* Data - Alinhada totalmente à esquerda */}
                 <div className="w-10 shrink-0 pt-1">
                   <span className="text-[11px] font-bold text-[#4a5568] tracking-tighter">
                     {cert.date}
                   </span>
                 </div>
 
-                {/* Marcador Estilo "Experience" (Anel + Ponto central) */}
                 <div className="relative z-10 mx-1.75 mt-1.75 flex items-center justify-center">
                   <div
                     className="w-4 h-4 rounded-full border-2 flex items-center justify-center bg-[#030712]"
@@ -64,7 +84,6 @@ export const Certificates = () => {
                   </div>
                 </div>
 
-                {/* Conteúdo */}
                 <div className="pb-10 pl-2">
                   <div className="text-[13px] font-semibold text-[#e2e8f0] leading-tight group-hover:text-purple-400 transition-colors">
                     {cert.title}
@@ -84,15 +103,9 @@ export const Certificates = () => {
           </div>
         </div>
 
-        {/* Direita — Cards pegando a altura total */}
         <div className="flex flex-col gap-4">
-          {/* Summary */}
           <div className="grid grid-cols-3 gap-3">
-            {[
-              { value: "7", label: "certificados", color: "#fbbf24" },
-              { value: "2", label: "em andamento", color: "#22d3ee" },
-              { value: "5", label: "instituições", color: "#a78bfa" },
-            ].map((s) => (
+            {summary.map((s) => (
               <div
                 key={s.label}
                 className="rounded-md py-3 text-center bg-paper border border-white/5 backdrop-blur-sm"
@@ -107,31 +120,49 @@ export const Certificates = () => {
             ))}
           </div>
 
-          {/* Proficiency Card - flex-1 para preencher altura */}
           <div className="flex-1 rounded-md p-6 bg-paper border border-white/5 backdrop-blur-sm flex flex-col">
-            <div className="text-[9px] text-[#64748b] uppercase tracking-[0.2em] mb-6 font-bold">
+            <div className="text-[11px] text-[#64748b] uppercase tracking-[0.2em] mb-6 font-bold">
               Domain Proficiency
             </div>
-            <div className="space-y-5 flex-1 flex flex-col justify-center">
+
+            <div className="space-y-8 flex-1 flex flex-col justify-center">
               {[
-                { label: "Segurança & Pentest", value: 72, color: "#fb923c" },
                 {
-                  label: "Infraestrutura & DevOps",
-                  value: 65,
-                  color: "#22d3ee",
+                  label: "Backend Engineering",
+                  value: 90,
+                  color: "#a78bfa",
                 },
-                { label: "Data & Privacidade", value: 80, color: "#34d399" },
-                { label: "Backend (Go / Java)", value: 58, color: "#a78bfa" },
-                { label: "Publicação Acadêmica", value: 40, color: "#f472b6" },
+                {
+                  label: "System Design & Architecture",
+                  value: 84,
+                  color: "#38bdf8",
+                },
+                {
+                  label: "Projects & Open Source",
+                  value: 72,
+                  color: "#facc15",
+                },
+                {
+                  label: "SQL & PostgreSQL",
+                  value: 88,
+                  color: "#34d399",
+                },
+                {
+                  label: "Docker & CI/CD",
+                  value: 75,
+                  color: "#fb923c",
+                },
               ].map(({ label, value, color }) => (
                 <div key={label}>
-                  <div className="flex justify-between text-[10px] mb-2">
+                  <div className="flex justify-between text-[12px] mb-2">
                     <span className="text-[#94a3b8] font-medium">{label}</span>
+
                     <span style={{ color }} className="font-bold">
                       {value}%
                     </span>
                   </div>
-                  <div className="h-0.5 bg-paper rounded-full overflow-hidden">
+
+                  <div className="h-1.5 bg-paper rounded-full overflow-hidden">
                     <div
                       className="h-full rounded-full transition-all duration-1000"
                       style={{
@@ -147,41 +178,39 @@ export const Certificates = () => {
           </div>
 
           {/* Studying Card - flex-1 para preencher altura */}
-          <div className="flex-1 rounded-md p-6 bg-paper border border-white/5 backdrop-blur-sm">
-            <div className="text-[9px] text-[#64748b] uppercase tracking-[0.2em] mb-6 font-bold">
+          <div className=" rounded-md p-6 bg-paper border border-white/5 backdrop-blur-sm">
+            <div className="text-[11px] text-[#64748b] uppercase tracking-[0.2em] mb-6 font-bold">
               Currently Studying
             </div>
             <div className="space-y-6">
-              {[
-                {
-                  title: "Golang do Zero ao Avançado",
-                  progress: 38,
-                  color: "#22d3ee",
-                },
-                {
-                  title: "Kubernetes do Básico ao Avançado",
-                  progress: 14,
-                  color: "#a78bfa",
-                },
-              ].map(({ title, progress, color }) => (
-                <div key={title}>
-                  <div className="flex justify-between text-[11px] mb-2 text-[#e2e8f0]">
-                    <span>{title}</span>
-                    <span style={{ color }}>{progress}%</span>
-                  </div>
-                  <div className="h-1.5 bg-white/5 rounded-full overflow-hidden relative">
-                    <div
-                      className="h-full rounded-full relative"
-                      style={{ width: `${progress}%`, backgroundColor: color }}
-                    >
-                      <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent animate-shimmer-new" />
+              {currentCertificates.map((cert, index) => {
+                const colors = ["#22d3ee", "#a78bfa", "#34d399", "#f472b6"];
+
+                return (
+                  <div key={cert.title}>
+                    <div className="flex justify-between text-[12px] mb-2 text-[#e2e8f0]">
+                      <span>{cert.title}</span>
+                      <span style={{ color: colors[index % colors.length] }}>
+                        Em andamento
+                      </span>
+                    </div>
+
+                    <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                      <div
+                        className="h-full rounded-full animate-pulse"
+                        style={{
+                          width: "100%",
+                          backgroundColor: colors[index % colors.length],
+                        }}
+                      />
+                    </div>
+
+                    <div className="text-[11px] text-[#4a5568] mt-2">
+                      {cert.institution}
                     </div>
                   </div>
-                  <div className="text-[9px] text-[#4a5568] mt-2 italic">
-                    Udemy · em andamento
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>

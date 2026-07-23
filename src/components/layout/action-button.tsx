@@ -3,16 +3,19 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "@/constants/header-content";
+import { useLanguage } from "@/contexts/language-contexts";
 
 export const ActionButton = () => {
+  const { language } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const languageNavLinks = navLinks[language];
 
   return (
     <div className="lg:hidden fixed bottom-12 right-6 z-50">
       <div className="relative flex flex-col items-end">
         {isMenuOpen && (
           <div className="flex flex-col items-start gap-3  bg-paper border border-paper-border text-gray-400  shadow-2xl rounded-lg p-3 mb-4 transition-all duration-300 ease-in-out">
-            {navLinks.map((link) => (
+            {languageNavLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}

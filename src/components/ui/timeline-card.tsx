@@ -1,9 +1,10 @@
 import { timelineItems } from "@/constants/timeline-items";
+import { Language } from "@/contexts/language-contexts";
 
 export const TimelineCard = ({
   item,
 }: {
-  item: (typeof timelineItems)[number];
+  item: (typeof timelineItems[Language])[number];
 }) => {
   return (
     <div
@@ -27,17 +28,7 @@ export const TimelineCard = ({
       <p className="text-[12px] text-[#64748b] leading-relaxed mb-2">
         {item.desc}
       </p>
-      <div className="flex flex-wrap gap-1">
-        {item.tags.map((t) => (
-          <span
-            key={t}
-            className={`text-[10px] px-1.5 py-0.5 rounded-xs `}
-            style={{ border: `1px solid ${item.color}70`, color: item.color }}
-          >
-            {t}
-          </span>
-        ))}
-      </div>
+     
     </div>
   );
 };
