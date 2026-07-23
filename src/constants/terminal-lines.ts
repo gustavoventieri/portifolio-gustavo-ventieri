@@ -7,7 +7,7 @@ export const terminalLines = {
     },
     { text: "$ cat expertise.txt", type: "cmd" },
     {
-      text: "  → Java · Spring Boot · PostgreSQL · ",
+      text: "  → Java · Spring Boot · PostgreSQL · Microsserviços · Docker ·  Agile · Scrum",
       type: "out",
     },
     { text: "$ ls ./status.sh", type: "cmd" },
