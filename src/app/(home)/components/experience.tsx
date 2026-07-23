@@ -11,12 +11,12 @@ export const Experience = () => {
   return (
     <div>
       <div className="relative">
-        <ContentHeader text={"Experience"} variant="purple" />
+        <ContentHeader text={languageTimelineItems.badge} variant="purple" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-0 relative items-center">
           <div className="md:hidden absolute left-4 top-0 h-full w-0.5 bg-slate-800" />
 
-          {languageTimelineItems.map((item, i) => {
+          {languageTimelineItems.works.map((item, i) => {
             const isAbove = i % 2 === 0;
 
             return (

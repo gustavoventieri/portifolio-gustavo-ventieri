@@ -1,26 +1,32 @@
 "use client";
+
 import { ContentHeader } from "@/components/ui/content-header";
 import { contactLinks } from "@/constants/contact-links";
+import { contactContent } from "@/constants/contact-content";
 import { ChevronRight } from "lucide-react";
+import { useLanguage } from "@/contexts/language-contexts";
 
 export const Contact = () => {
+  const { language } = useLanguage();
+  const content = contactContent[language];
+
   return (
     <section id="contact" className="w-full">
-      <div className="container mx-auto   ">
+      <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-12 w-full">
           <div className="max-w-md lg:pt-2">
-            <ContentHeader text={"Get in Touch"} variant="purple" />
+            <ContentHeader text={content.badge} variant="purple" />
+
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.1]">
-              {"Let's build"}
+              {content.title.line1}
               <br />
-              <span className="bg-clip-text text-hero">together.</span>
+              <span className="bg-clip-text text-hero">
+                {content.title.highlight}
+              </span>
             </h2>
 
             <p className="text-base text-[#64748b] leading-relaxed max-w-sm font-sans">
-              Open to full-stack development opportunities, data analytics
-              projects, and technology collaborations. Especially interested in
-              scalable web applications, data-driven solutions, backend
-              architecture, and software engineering challenges
+              {content.description}
             </p>
           </div>
 
@@ -32,7 +38,6 @@ export const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-4 p-4 rounded-sm transition-all duration-300 border border-white/3 hover:border-white/10 bg-paper"
-                style={{}}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = `${color}40`;
                   e.currentTarget.style.boxShadow = `0 0 20px ${color}10`;
@@ -53,10 +58,11 @@ export const Contact = () => {
                   {label}
                 </span>
 
-                <div className="flex items-center gap-3 ">
+                <div className="flex items-center gap-3">
                   <span className="text-[9px] uppercase tracking-[0.2em] text-[#475569] font-mono group-hover:text-[#64748b] transition-colors">
                     {sub}
                   </span>
+
                   <ChevronRight
                     size={14}
                     className="text-[#475569] group-hover:text-white group-hover:translate-x-1 transition-all"

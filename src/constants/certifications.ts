@@ -1,5 +1,6 @@
 export const certifications = {
   pt: [
+    
     {
       date: "2026",
       title: "Gestão Ágil com Scrum COMPLETO",
@@ -22,18 +23,6 @@ export const certifications = {
       date: "2025",
       title: "TOEIC Listening & Reading (780/990 - B2)",
       institution: "ETS",
-      current: false,
-    },
-    {
-      date: "2025",
-      title: "The Web Developer Bootcamp 2025",
-      institution: "Udemy",
-      current: false,
-    },
-    {
-      date: "2024",
-      title: "Java com Spring Boot",
-      institution: "DIO & Claro",
       current: false,
     },
     {

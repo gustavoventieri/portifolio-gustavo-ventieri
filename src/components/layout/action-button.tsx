@@ -15,7 +15,7 @@ export const ActionButton = () => {
       <div className="relative flex flex-col items-end">
         {isMenuOpen && (
           <div className="flex flex-col items-start gap-3  bg-paper border border-paper-border text-gray-400  shadow-2xl rounded-lg p-3 mb-4 transition-all duration-300 ease-in-out">
-            {languageNavLinks.map((link) => (
+            {languageNavLinks.navbar.map((link) => (
               <a
                 key={link.label}
                 href={link.href}

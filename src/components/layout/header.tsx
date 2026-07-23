@@ -5,7 +5,7 @@ import { Terminal } from "lucide-react";
 import Link from "next/link";
 
 export const Header = () => {
-  const { language } = useLanguage();
+  const { setLanguage, language } = useLanguage();
   const languageNavLinks = navLinks[language];
 
   return (
@@ -25,7 +25,7 @@ export const Header = () => {
         </Link>
 
         <nav className="hidden lg:flex items-center gap-4">
-          {languageNavLinks.map((link) => (
+          {languageNavLinks.navbar.map((link) => (
             <a
               key={link.label}
               href={link.href}
@@ -43,8 +43,33 @@ export const Header = () => {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
             </span>
             <span className="text-[12px] tracking-widest text-accent lowercase">
-              open to work
+              {languageNavLinks.status}
             </span>
+          </div>
+          <div className="flex items-center gap-2 border border-line rounded-md p-1 bg-paper h-8">
+            <button
+              onClick={() => setLanguage("pt")}
+              className={`flex items-center justify-center rounded px-2 py-1 transition-all ${
+                language === "pt"
+                  ? "bg-accent/20 ring-1 ring-accent h-6"
+                  : "hover:bg-white/5"
+              }`}
+              aria-label="Português"
+            >
+              <span className="text-[14px]">🇧🇷</span>
+            </button>
+
+            <button
+              onClick={() => setLanguage("en")}
+              className={`flex items-center justify-center rounded px-2 py-1 transition-all  ${
+                language === "en"
+                  ? "bg-accent/20 ring-1 ring-accent h-6"
+                  : "hover:bg-white/5"
+              }`}
+              aria-label="English"
+            >
+              <span className="text-[14px]">🇺🇸</span>
+            </button>
           </div>
         </div>
       </div>

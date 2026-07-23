@@ -1,12 +1,22 @@
 "use client";
 
 import { ContentHeader } from "@/components/ui/content-header";
+import { certificationDetailsSection } from "@/constants/certification-details";
 import { certifications } from "@/constants/certifications";
 import { useLanguage } from "@/contexts/language-contexts";
 
 export const Certificates = () => {
   const { language } = useLanguage();
   const certs = certifications[language];
+
+  const {
+    badge,
+    proficiency,
+    proficiencyTitle,
+    studyingTitle,
+    studyingStatus,
+    studyingColors,
+  } = certificationDetailsSection[language];
 
   const totalCertificates = certs.length;
   const currentCertificates = certs.filter((c) => c.current);
@@ -33,7 +43,7 @@ export const Certificates = () => {
   return (
     <div className="w-full">
       <div className="flex items-center gap-2.5 mb-10">
-        <ContentHeader text={"Certifications"} variant="purple" />
+        <ContentHeader text={badge} variant="purple" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
@@ -122,37 +132,11 @@ export const Certificates = () => {
 
           <div className="flex-1 rounded-md p-6 bg-paper border border-white/5 backdrop-blur-sm flex flex-col">
             <div className="text-[11px] text-[#64748b] uppercase tracking-[0.2em] mb-6 font-bold">
-              Domain Proficiency
+              {proficiencyTitle}
             </div>
 
             <div className="space-y-8 flex-1 flex flex-col justify-center">
-              {[
-                {
-                  label: "Backend Engineering",
-                  value: 90,
-                  color: "#a78bfa",
-                },
-                {
-                  label: "System Design & Architecture",
-                  value: 84,
-                  color: "#38bdf8",
-                },
-                {
-                  label: "Projects & Open Source",
-                  value: 72,
-                  color: "#facc15",
-                },
-                {
-                  label: "SQL & PostgreSQL",
-                  value: 88,
-                  color: "#34d399",
-                },
-                {
-                  label: "Docker & CI/CD",
-                  value: 75,
-                  color: "#fb923c",
-                },
-              ].map(({ label, value, color }) => (
+              {proficiency.map(({ label, value, color }) => (
                 <div key={label}>
                   <div className="flex justify-between text-[12px] mb-2">
                     <span className="text-[#94a3b8] font-medium">{label}</span>
@@ -177,40 +161,42 @@ export const Certificates = () => {
             </div>
           </div>
 
-          {/* Studying Card - flex-1 para preencher altura */}
-          <div className=" rounded-md p-6 bg-paper border border-white/5 backdrop-blur-sm">
+          <div className="rounded-md p-6 bg-paper border border-white/5 backdrop-blur-sm">
             <div className="text-[11px] text-[#64748b] uppercase tracking-[0.2em] mb-6 font-bold">
-              Currently Studying
+              {studyingTitle}
             </div>
+
             <div className="space-y-6">
-              {currentCertificates.map((cert, index) => {
-                const colors = ["#22d3ee", "#a78bfa", "#34d399", "#f472b6"];
+              {currentCertificates.map((cert, index) => (
+                <div key={cert.title}>
+                  <div className="flex justify-between text-[12px] mb-2 text-[#e2e8f0]">
+                    <span>{cert.title}</span>
 
-                return (
-                  <div key={cert.title}>
-                    <div className="flex justify-between text-[12px] mb-2 text-[#e2e8f0]">
-                      <span>{cert.title}</span>
-                      <span style={{ color: colors[index % colors.length] }}>
-                        Em andamento
-                      </span>
-                    </div>
-
-                    <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
-                      <div
-                        className="h-full rounded-full animate-pulse"
-                        style={{
-                          width: "100%",
-                          backgroundColor: colors[index % colors.length],
-                        }}
-                      />
-                    </div>
-
-                    <div className="text-[11px] text-[#4a5568] mt-2">
-                      {cert.institution}
-                    </div>
+                    <span
+                      style={{
+                        color: studyingColors[index % studyingColors.length],
+                      }}
+                    >
+                      {studyingStatus}
+                    </span>
                   </div>
-                );
-              })}
+
+                  <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                    <div
+                      className="h-full rounded-full animate-pulse"
+                      style={{
+                        width: "100%",
+                        backgroundColor:
+                          studyingColors[index % studyingColors.length],
+                      }}
+                    />
+                  </div>
+
+                  <div className="text-[11px] text-[#4a5568] mt-2">
+                    {cert.institution}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

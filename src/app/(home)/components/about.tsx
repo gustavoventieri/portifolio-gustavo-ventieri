@@ -13,8 +13,8 @@ export const About = () => {
   const [cursor, setCursor] = useState(true);
 
   const languageAboutContent = aboutContent[language];
-
   const languageTerminalLines = terminalLines[language];
+  
 
   useEffect(() => {
     if (terminalStep >= languageTerminalLines.length) return;
@@ -102,7 +102,7 @@ export const About = () => {
               <span className="w-2.5 h-2.5 rounded-full bg-[#fbbf24]" />
               <span className="w-2.5 h-2.5 rounded-full bg-[#34d399]" />
             </div>
-            <span className="text-[10px] mt-1 text-[#64748b] ml-1 tracking-wider">
+            <span className="text-[12px] mt-1 text-[#64748b] ml-1 tracking-wider">
               {languageAboutContent.terminalTitle}
             </span>
           </div>

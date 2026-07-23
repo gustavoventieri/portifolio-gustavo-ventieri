@@ -1,11 +1,9 @@
 import { timelineItems } from "@/constants/timeline-items";
 import { Language } from "@/contexts/language-contexts";
 
-export const TimelineCard = ({
-  item,
-}: {
-  item: (typeof timelineItems[Language])[number];
-}) => {
+type TimelineItem = (typeof timelineItems)[Language]["works"][number];
+
+export const TimelineCard = ({ item }: { item: TimelineItem }) => {
   return (
     <div
       className="rounded-[3px] p-3.5 transition-all duration-200 group hover:scale-[1.02] bg-paper"
@@ -28,7 +26,6 @@ export const TimelineCard = ({
       <p className="text-[12px] text-[#64748b] leading-relaxed mb-2">
         {item.desc}
       </p>
-     
     </div>
   );
 };
