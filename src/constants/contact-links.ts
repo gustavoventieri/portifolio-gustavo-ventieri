@@ -13,8 +13,8 @@ export interface ContactLink {
 export const contactLinks: ContactLink[] = [
   {
     icon: Mail,
-    label: "ventierigustavo@gmail.com",
-    href: "mailto:ventierigustavo@gmail.com",
+    label: "contato.gustavoventieri@gmail.com",
+    href: "mailto:contato.gustavoventieri@gmail.com",
     sub: "email",
     color: "#34d399", // Ciano
   },
