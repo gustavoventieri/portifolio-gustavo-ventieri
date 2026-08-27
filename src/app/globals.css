@@ -50,6 +50,11 @@ body {
     color 0.3s;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 h1,
 h2,
 h3,
