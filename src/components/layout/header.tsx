@@ -1,78 +1,157 @@
 "use client";
-import { navLinks } from "@/constants/header-content";
-import { useLanguage } from "@/contexts/language-contexts";
-import { Terminal } from "lucide-react";
-import Link from "next/link";
 
-export const Header = () => {
-  const { setLanguage, language } = useLanguage();
-  const languageNavLinks = navLinks[language];
+import { useState } from "react";
+import { useTheme } from "next-themes";
+import { Moon, Sun } from "lucide-react";
+import { navItems, themeLabels, type Locale } from "@/data/nav-items";
+import { useMounted } from "@/hooks/use-mounted";
+import { useActiveSection } from "@/hooks/use-activation-section";
+
+export function Header() {
+  const { resolvedTheme, setTheme } = useTheme();
+  const mounted = useMounted();
+  const [lang, setLang] = useState<Locale>("pt");
+
+  const items = navItems[lang];
+  const labels = themeLabels[lang];
+  const isDark = mounted && resolvedTheme === "dark";
+
+  const activeId = useActiveSection(
+    items.map((item) => item.href.replace("#", "")),
+  );
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-line bg-background font-mono transition-all duration-300">
-      <div className=" mx-auto flex   h-15 items-center justify-between  px-6 lg:px-28 md:px-20 ">
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="flex items-center gap-2">
-            <Terminal className="text-accent w-5 h-5" />
-            <span className=" flex xl:hidden md:text-md  text-[12px] font-bold tracking-[0.2em] text-accent">
-              G. Ventieri
-            </span>
+    <header
+      style={{
+        background: isDark ? "rgba(22,23,29,0.92)" : "rgba(255,255,255,0.92)",
+      }}
+      className="sticky top-0 z-50 border-b border-(--border) backdrop-blur-md"
+    >
+      <div className="max-w-300 mx-auto flex items-center h-14 gap-6 px-4 md:px-6">
+        <a href="#hero" className="font-mono mt-2 text-sm text-(--accent)">
+          gustavo@archlinux
+        </a>
 
-            <span className="xl:flex hidden xl:text-[16px] font-bold tracking-widest text-accent">
-              Gustavo Ventieri
-            </span>
-          </div>
-        </Link>
+        <div className="flex-1" />
 
-        <nav className="hidden lg:flex items-center gap-4">
-          {languageNavLinks.navbar.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-[14px] font-medium tracking-[0.2em] text-zinc-500 hover:text-zinc-200 transition-colors uppercase"
-            >
-              {link.label}
-            </a>
-          ))}
+        {/* Nav — direita (desktop) */}
+        <nav className="hidden md:flex items-center gap-6">
+          {items.map((item) => {
+            const id = item.href.replace("#", "");
+            const isActive = activeId === id;
+
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                className={`relative text-sm py-1 transition-colors ${
+                  isActive
+                    ? "text-(--accent) font-medium"
+                    : "text-(--text) hover:text-(--accent)"
+                }`}
+              >
+                {item.label}
+                <span
+                  className="absolute left-0 -bottom-px h-0.5 bg-(--accent) rounded-full transition-all duration-300"
+                  style={{
+                    width: isActive ? "100%" : "0%",
+                  }}
+                />
+              </a>
+            );
+          })}
         </nav>
 
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2 px-3 py-1">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
-            </span>
-            <span className="text-[12px] tracking-widest text-accent lowercase">
-              {languageNavLinks.status}
-            </span>
-          </div>
-          <div className="flex items-center gap-2 border border-line rounded-md p-1 bg-paper h-8">
-            <button
-              onClick={() => setLanguage("pt")}
-              className={`flex items-center justify-center rounded px-2 py-1 transition-all ${
-                language === "pt"
-                  ? "bg-accent/20 ring-1 ring-accent h-6"
-                  : "hover:bg-white/5"
-              }`}
-              aria-label="Português"
-            >
-              <span className="text-[14px]">🇧🇷</span>
-            </button>
+        <div className="hidden md:block w-px h-5 bg-(--border)" />
 
-            <button
-              onClick={() => setLanguage("en")}
-              className={`flex items-center justify-center rounded px-2 py-1 transition-all  ${
-                language === "en"
-                  ? "bg-accent/20 ring-1 ring-accent h-6"
-                  : "hover:bg-white/5"
-              }`}
-              aria-label="English"
-            >
-              <span className="text-[14px]">🇺🇸</span>
-            </button>
-          </div>
-        </div>
+        <button
+          onClick={() => setLang(lang === "pt" ? "en" : "pt")}
+          title="Switch language"
+          style={{
+            position: "relative",
+            background: "var(--code-bg)",
+            border: "1px solid var(--border)",
+            borderRadius: 6,
+            padding: 3,
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            flexShrink: 0,
+          }}
+        >
+          {/* Fundo que desliza */}
+          <span
+            style={{
+              position: "absolute",
+              top: 3,
+              left: lang === "pt" ? 3 : "calc(50% - 1px)",
+              width: "calc(50% - 2px)",
+              height: "calc(100% - 6px)",
+              background: "#  ",
+              opacity: 0.12,
+              borderRadius: 4,
+              transition: "left 0.25s ease",
+            }}
+          />
+
+          <span
+            className="mono"
+            style={{
+              position: "relative",
+              zIndex: 1,
+              padding: "4px 10px",
+              fontSize: "0.72rem",
+              fontWeight: 600,
+              letterSpacing: "0.04em",
+              color: lang === "pt" ? "var(--text-h)" : "var(--text)",
+              opacity: lang === "pt" ? 1 : 0.5,
+              transition: "color 0.2s, opacity 0.2s",
+            }}
+          >
+            PT
+          </span>
+          <span
+            className="mono"
+            style={{
+              position: "relative",
+              zIndex: 1,
+              padding: "4px 10px",
+              fontSize: "0.72rem",
+              fontWeight: 600,
+              letterSpacing: "0.04em",
+              color: lang === "en" ? "var(--text-h)" : "var(--text)",
+              opacity: lang === "en" ? 1 : 0.5,
+              transition: "color 0.2s, opacity 0.2s",
+            }}
+          >
+            EN
+          </span>
+        </button>
+
+        {/* Toggle de tema */}
+        <button
+          onClick={() => setTheme(isDark ? "light" : "dark")}
+          style={{
+            background: "var(--code-bg)",
+            border: "1px solid var(--border)",
+            borderRadius: 6,
+            padding: "6px 10px",
+            color: "var(--text-h)",
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            gap: 6,
+            transition: "border-color 0.2s",
+            flexShrink: 0,
+          }}
+          title="Toggle theme"
+        >
+          {isDark ? <Sun size={18} /> : <Moon size={18} />}
+          <span className="text-xs hidden sm:block">
+            {isDark ? labels.light : labels.dark}
+          </span>
+        </button>
       </div>
     </header>
   );
-};
+}
