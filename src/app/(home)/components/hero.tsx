@@ -37,7 +37,7 @@ export default function Hero() {
 
           <div className="flex flex-wrap gap-3">
             <a href="#projetos" className="btn-primary">
-              {transalatedHeroData.btn01} <ArrowRight />
+              {transalatedHeroData.btn01} <ArrowRight size={15} />
             </a>
             <a href="#" className="btn-outline">
               <Download size={15} /> {transalatedHeroData.btn02}
