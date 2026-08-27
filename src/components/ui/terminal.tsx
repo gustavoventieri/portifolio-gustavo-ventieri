@@ -67,49 +67,63 @@ export function Terminal() {
   }, [phase, charIdx, seqIdx, transalatedTerminalData]);
 
   return (
-    <div className="rounded-lg overflow-hidden bg-[#0e0f14] border border-[#2a2b35] shadow-[0_24px_64px_rgba(0,0,0,0.5)] min-h-80">
-      {/* Title bar */}
-      <div className="flex items-center gap-3 px-4 py-2.5 bg-[#1a1b24] border-b border-[#2a2b35]">
-        <div className="flex gap-1.5">
-          <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-          <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
-          <div className="w-3 h-3 rounded-full bg-[#28c840]" />
-        </div>
-        <div className="flex justify-center w-full mr-10">
-          <span className="mono text-xs text-white">gustavo@archlinux</span>
-        </div>
-      </div>
-
-      {/* Output area */}
+    // relative + isolate: contém as manchas (absolute) dentro deste wrapper, sem vazar pro resto da página
+    <div className="relative isolate">
       <div
-        ref={termRef}
-        className="flex flex-col gap-1.5 px-5 py-4 min-h-65 max-h-85 overflow-y-auto"
+        aria-hidden
+        className="pointer-events-none absolute -inset-16 -z-10 flex items-center justify-center"
       >
-        {lines.map((line, i) =>
-          line.type === "cmd" ? (
-            <TerminalLine key={i} text={line.text} isCmd />
-          ) : (
-            <TerminalLine key={i} text={line.text} isOutput />
-          ),
-        )}
+        <div
+          className="w-[95%] h-[95%] blur-3xl opacity-90 dark:opacity-90
+               bg-cyan-700 dark:bg-zinc-600
+               animate-blob-morph"
+          style={{
+            borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
+          }}
+        />
+      </div>
+      <div className="rounded-lg overflow-hidden bg-[#0e0f14] border border-[#2a2b35] shadow-[0_24px_84px_rgba(0,0,0,0.5)] min-h-80">
+        {/* Title bar */}
+        <div className="flex items-center gap-3 px-4 py-2.5 bg-[#1a1b24] border-b border-[#2a2b35]">
+          <div className="flex gap-1.5">
+            <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+            <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
+            <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+          </div>
+          <div className="flex justify-center w-full mr-10">
+            <span className="mono text-xs text-white">gustavo@archlinux</span>
+          </div>
+        </div>
 
-        {/* Active typing line — comando em digitação também com a primeira palavra em verde */}
-        <div className="flex gap-2 items-center mono text-sm min-h-[22px]">
-          <span className="text-[#22c55e]">$</span>
-          <span>{renderCommand(typing)}</span>
-          <span className="inline-block w-2 h-[1em] bg-[#f87171] align-text-bottom animate-[blink_1s_step-end_infinite]" />
+        {/* Output area */}
+        <div
+          ref={termRef}
+          className="flex flex-col gap-1.5 px-5 py-4 min-h-100 overflow-y-auto"
+        >
+          {lines.map((line, i) =>
+            line.type === "cmd" ? (
+              <TerminalLine key={i} text={line.text} isCmd />
+            ) : (
+              <TerminalLine key={i} text={line.text} isOutput />
+            ),
+          )}
+
+          {/* Active typing line */}
+          <div className="flex gap-2 items-center mono text-sm min-h-[22px]">
+            <span className="text-[#22c55e]">$</span>
+            <span>{renderCommand(typing)}</span>
+            <span className="inline-block w-2 h-[1em] bg-[#f87171] align-text-bottom animate-[blink_1s_step-end_infinite]" />
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-// Separa a primeira palavra (o comando em si: cat, whoami, echo...) do restante (argumentos),
-// pra colorir só o comando de verde e manter os argumentos na cor normal
 function renderCommand(text: string) {
   const spaceIdx = text.indexOf(" ");
   if (spaceIdx === -1) {
-    return <span className="text-[#22c55e]">{text}</span>;
+    return <span className="text-[#22c55e] text-[12px]">{text}</span>;
   }
 
   const command = text.slice(0, spaceIdx);
@@ -117,8 +131,8 @@ function renderCommand(text: string) {
 
   return (
     <>
-      <span className="text-[#22c55e]">{command}</span>
-      <span className="text-[#f3f4f6]">{rest}</span>
+      <span className="text-[#22c55e] text-[12px]">{command}</span>
+      <span className="text-[#f3f4f6] text-[12px]">{rest}</span>
     </>
   );
 }
@@ -134,7 +148,7 @@ function TerminalLine({
 }) {
   if (isCmd) {
     return (
-      <div className="flex gap-2 items-start mono text-sm leading-relaxed">
+      <div className="flex gap-2 items-start mono text-[12px] leading-relaxed">
         <span className="text-[#22c55e]">$</span>
         <span>{renderCommand(text)}</span>
       </div>
@@ -142,7 +156,7 @@ function TerminalLine({
   }
   if (isOutput) {
     return (
-      <div className="mono text-sm leading-relaxed whitespace-pre text-[#9ca3af]">
+      <div className="mono text-[12px] leading-relaxed whitespace-pre text-[#9ca3af]">
         {text}
       </div>
     );

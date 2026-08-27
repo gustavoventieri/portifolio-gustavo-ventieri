@@ -12,13 +12,16 @@ export default function Hero() {
 
   return (
     // Espaçamento vertical da seção
-    <section id="hero" className="pt-25 pb-25">
-      <div className="grid grid-cols-1 lg:grid-cols-2 items-center ">
+    <section
+      id="hero"
+      className="min-h-[85vh] flex justify-between  items-center"
+    >
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center w-full">
         {/* Coluna esquerda */}
-        <div className="flex flex-col gap-6 min-w-0">
+        <div className="flex flex-col gap-6 min-w-0 min-h-100 items-start justify-center">
           <div>
             {/* Tamanho fluido (clamp) precisa de valor arbitrário, Tailwind não tem utilitário nativo pra isso */}
-            <h1 className="text-[clamp(2.2rem,5vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.02em] text-(--heading)">
+            <h1 className="text-[clamp(2.9rem,10vw,3.9rem)] font-bold leading-[1.1] tracking-[-0.02em] text-(--heading)">
               Gustavo
               <br />
               <span className="text-(--accent)">Ventieri</span>
@@ -29,7 +32,7 @@ export default function Hero() {
           </div>
 
           {/* max-w-110 = 440px (110 * 4px) */}
-          <p className="text-base leading-[1.75] text-(--fg) max-w-110">
+          <p className="text-base leading-[1.75] text-(--fg) max-w-100">
             {transalatedHeroData.desc}
           </p>
 
@@ -62,17 +65,17 @@ export default function Hero() {
             })}
 
             {/* Divisor vertical entre ícones e email */}
-            <div className="h-px w-10 bg-(--border)" />
+            <div className="h-px w-10 bg-(--border) hidden md:flex" />
 
             {/* Email extraído do mesmo contactData, sem duplicar dado */}
-            <span className="mono text-xs text-(--muted)">
+            <span className="mono text-xs text-(--muted) hidden md:flex">
               {contactData.find((contact) => contact.name === "Email")?.path}
             </span>
           </div>
         </div>
 
-        <div className="">
-          <Terminal  />
+        <div>
+          <Terminal />
         </div>
       </div>
     </section>

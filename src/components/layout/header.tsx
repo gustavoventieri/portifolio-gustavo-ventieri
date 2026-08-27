@@ -27,7 +27,7 @@ export function Header() {
         isDark ? "bg-[rgba(22,23,29,0.92)]" : "bg-[rgba(255,255,255,0.92)]"
       }`}
     >
-      <div className="max-w-300 mx-auto flex items-center h-14 gap-6 px-4 md:px-6">
+      <div className="max-w-400 mx-auto flex items-center h-14 gap-6 px-4 md:px-6">
         <a href="#hero" className="font-mono mt-2 text-sm text-(--accent)">
           gustavo@archlinux
         </a>
