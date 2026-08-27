@@ -63,7 +63,7 @@ export const App = ({ children }: { children: React.ReactNode }) => {
         />
       </head>
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="light">
           <Header />
           <main className="flex-1">{children}</main>
         </ThemeProvider>

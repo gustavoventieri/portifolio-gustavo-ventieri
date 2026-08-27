@@ -1,19 +1,19 @@
 "use client";
 
-import { useState } from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
-import { navItems, themeLabels, type Locale } from "@/data/nav-items";
+import { navItems, themeLabels } from "@/data/navbar";
 import { useMounted } from "@/hooks/use-mounted";
 import { useActiveSection } from "@/hooks/use-activation-section";
+import { useLanguage } from "@/contexts/language-contexts";
 
 export function Header() {
   const { resolvedTheme, setTheme } = useTheme();
   const mounted = useMounted();
-  const [lang, setLang] = useState<Locale>("pt");
+  const { language, setLanguage } = useLanguage();
 
-  const items = navItems[lang];
-  const labels = themeLabels[lang];
+  const items = navItems[language];
+  const labels = themeLabels[language];
   const isDark = mounted && resolvedTheme === "dark";
 
   const activeId = useActiveSection(
@@ -21,11 +21,11 @@ export function Header() {
   );
 
   return (
+    // Fundo com opacidade via arbitrary value, já que precisa de rgba dinâmico (não dá pra fazer só com CSS var)
     <header
-      style={{
-        background: isDark ? "rgba(22,23,29,0.92)" : "rgba(255,255,255,0.92)",
-      }}
-      className="sticky top-0 z-50 border-b border-(--border) backdrop-blur-md"
+      className={`sticky top-0 z-50 border-b border-(--border) backdrop-blur-md ${
+        isDark ? "bg-[rgba(22,23,29,0.92)]" : "bg-[rgba(255,255,255,0.92)]"
+      }`}
     >
       <div className="max-w-300 mx-auto flex items-center h-14 gap-6 px-4 md:px-6">
         <a href="#hero" className="font-mono mt-2 text-sm text-(--accent)">
@@ -51,11 +51,11 @@ export function Header() {
                 }`}
               >
                 {item.label}
+                {/* Barrinha que "desenha" embaixo do item ativo, largura animada via classe condicional */}
                 <span
-                  className="absolute left-0 -bottom-px h-0.5 bg-(--accent) rounded-full transition-all duration-300"
-                  style={{
-                    width: isActive ? "100%" : "0%",
-                  }}
+                  className={`absolute left-0 -bottom-px h-0.5 bg-(--accent) rounded-full transition-all duration-300 ${
+                    isActive ? "w-full" : "w-0"
+                  }`}
                 />
               </a>
             );
@@ -64,65 +64,34 @@ export function Header() {
 
         <div className="hidden md:block w-px h-5 bg-(--border)" />
 
+        {/* Toggle de idioma — segmented control com fundo deslizante */}
         <button
-          onClick={() => setLang(lang === "pt" ? "en" : "pt")}
+          onClick={() => setLanguage(language === "pt" ? "en" : "pt")}
           title="Switch language"
-          style={{
-            position: "relative",
-            background: "var(--code-bg)",
-            border: "1px solid var(--border)",
-            borderRadius: 6,
-            padding: 3,
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            flexShrink: 0,
-          }}
+          className="relative flex items-center shrink-0 rounded-md p-0.75 bg-(--code-bg) hover:border-gray-400 border border-(--border)"
         >
-          {/* Fundo que desliza */}
+          {/* Fundo cinza que desliza entre PT/EN */}
           <span
-            style={{
-              position: "absolute",
-              top: 3,
-              left: lang === "pt" ? 3 : "calc(50% - 1px)",
-              width: "calc(50% - 2px)",
-              height: "calc(100% - 6px)",
-              background: "#  ",
-              opacity: 0.12,
-              borderRadius: 4,
-              transition: "left 0.25s ease",
-            }}
+            className={`absolute top-0.75 h-[calc(100%-6px)] w-[calc(50%-2px)] rounded bg-[#808080] opacity-[0.12] transition-all duration-250 ease-out ${
+              language === "pt" ? "left-0.75" : "left-[calc(50%-1px)]"
+            }`}
           />
 
           <span
-            className="mono"
-            style={{
-              position: "relative",
-              zIndex: 1,
-              padding: "4px 10px",
-              fontSize: "0.72rem",
-              fontWeight: 600,
-              letterSpacing: "0.04em",
-              color: lang === "pt" ? "var(--text-h)" : "var(--text)",
-              opacity: lang === "pt" ? 1 : 0.5,
-              transition: "color 0.2s, opacity 0.2s",
-            }}
+            className={`mono relative z-10 px-2.5 py-1 text-[0.72rem] font-semibold tracking-[0.04em] transition-colors duration-200 ${
+              language === "pt"
+                ? "text-(--text-h) opacity-100"
+                : "text-(--text) opacity-50"
+            }`}
           >
             PT
           </span>
           <span
-            className="mono"
-            style={{
-              position: "relative",
-              zIndex: 1,
-              padding: "4px 10px",
-              fontSize: "0.72rem",
-              fontWeight: 600,
-              letterSpacing: "0.04em",
-              color: lang === "en" ? "var(--text-h)" : "var(--text)",
-              opacity: lang === "en" ? 1 : 0.5,
-              transition: "color 0.2s, opacity 0.2s",
-            }}
+            className={`mono relative z-10 px-2.5 py-1 text-[0.72rem] font-semibold tracking-[0.04em] transition-colors duration-200 ${
+              language === "en"
+                ? "text-(--text-h) opacity-100"
+                : "text-(--text) opacity-50"
+            }`}
           >
             EN
           </span>
@@ -131,23 +100,11 @@ export function Header() {
         {/* Toggle de tema */}
         <button
           onClick={() => setTheme(isDark ? "light" : "dark")}
-          style={{
-            background: "var(--code-bg)",
-            border: "1px solid var(--border)",
-            borderRadius: 6,
-            padding: "6px 10px",
-            color: "var(--text-h)",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            gap: 6,
-            transition: "border-color 0.2s",
-            flexShrink: 0,
-          }}
           title="Toggle theme"
+          className="flex items-center gap-1.5 shrink-0 rounded-md px-2.5 py-1.5 text-(--text-h) bg-(--code-bg) border border-(--border) hover:border-gray-400 transition-colors"
         >
           {isDark ? <Sun size={18} /> : <Moon size={18} />}
-          <span className="text-xs hidden sm:block">
+          <span className="hidden sm:block text-xs">
             {isDark ? labels.light : labels.dark}
           </span>
         </button>

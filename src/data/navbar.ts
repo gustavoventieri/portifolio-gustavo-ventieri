@@ -1,11 +1,11 @@
+import { Languages } from "./languages";
+
 export interface NavItem {
   label: string;
   href: string;
 }
 
-export type Locale = "pt" | "en";
-
-export const navItems: Record<Locale, NavItem[]> = {
+export const navItems: Record<Languages, NavItem[]> = {
   pt: [
     { label: "Sobre", href: "#about" },
     { label: "Projetos", href: "#projects" },
@@ -22,7 +22,7 @@ export const navItems: Record<Locale, NavItem[]> = {
   ],
 };
 
-export const themeLabels: Record<Locale, { light: string; dark: string }> = {
+export const themeLabels: Record<Languages, { light: string; dark: string }> = {
   pt: { light: "Claro", dark: "Escuro" },
   en: { light: "Light", dark: "Dark" },
 };
