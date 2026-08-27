@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-"use client";
 
 import "./globals.css";
 import { Inter } from "next/font/google";
@@ -40,7 +39,7 @@ export default function GlobalNotFound() {
               <p className="text-sm mb-9 leading-relaxed text-(--fg)">
                 O endereço que você acessou não existe ou foi movido para outro
                 lugar.
-              </p>  
+              </p>
 
               <button className="btn-primary">
                 <a href="/">Voltar para o início</a>

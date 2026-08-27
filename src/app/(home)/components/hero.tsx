@@ -3,7 +3,6 @@ import { Terminal } from "@/components/ui/terminal";
 import { useLanguage } from "@/contexts/language-contexts";
 import { contactData, contactIcons, getHref } from "@/data/contact";
 import { heroData } from "@/data/hero";
-import { terminalData } from "@/data/terminal";
 import { ArrowRight, Download } from "lucide-react";
 
 export default function Hero() {

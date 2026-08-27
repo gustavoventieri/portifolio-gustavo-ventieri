@@ -30,8 +30,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <LanguageProvider>
-      <App>{children}</App>
-    </LanguageProvider>
+    <html lang="pt">
+      <body>
+        <LanguageProvider>
+          <App>{children}</App>
+        </LanguageProvider>
+      </body>
+    </html>
   );
 }
