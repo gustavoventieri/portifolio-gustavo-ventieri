@@ -11,7 +11,7 @@ export const terminalData: Record<Languages, TerminalType> = {
       "Java, Spring Boot, Go, React, TypeScript,\nPostgreSQL, Docker, Kubernetes",
       "Sistemas Distribuídos, Design de API, \nOpen Source & Arquitetura Limpa",
       "github: github.com/gustavoventieri\nemail: contato.gustavoventieri@gmail.com",
-      "Disponível para novos projetos",
+      "Aberto a trabalho",
     ],
   },
   en: {
@@ -20,7 +20,7 @@ export const terminalData: Record<Languages, TerminalType> = {
       "Java, Spring Boot, Go, React, TypeScript, \nPostgreSQL, Docker, Kubernetes",
       "Distributed Systems, API Design, \nOpen Source & Clean Architecture",
       "github: github.com/gustavoventieri\nemail: contato.gustavoventieri@gmail.com",
-      "Available for new projects",
+      "Open to work",
     ],
   },
 };

@@ -74,7 +74,7 @@ export default function Hero() {
         </div>
 
         <div>
-          <Terminal />
+          <Terminal key={language} />
         </div>
       </div>
     </section>

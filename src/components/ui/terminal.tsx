@@ -6,15 +6,18 @@ import { useEffect, useRef, useState } from "react";
 
 export function Terminal() {
   type Line = { type: "cmd" | "output"; text: string };
+
   const [lines, setLines] = useState<Line[]>([]);
   const [typing, setTyping] = useState("");
   const [phase, setPhase] = useState<"idle" | "typing" | "output">("idle");
   const [seqIdx, setSeqIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
+
   const termRef = useRef<HTMLDivElement>(null);
+
   const { language } = useLanguage();
 
-  const transalatedTerminalData = terminalData[language];
+  const translatedTerminalData = terminalData[language];
 
   useEffect(() => {
     if (termRef.current) {
@@ -24,14 +27,16 @@ export function Terminal() {
 
   useEffect(() => {
     if (seqIdx >= TERMINAL_CMDS.length) return;
+
     const step = {
       cmd: TERMINAL_CMDS[seqIdx],
       delay: TERMINAL_DELAYS[seqIdx],
-      output: transalatedTerminalData.output[seqIdx],
+      output: translatedTerminalData.output[seqIdx],
     };
 
     if (phase === "idle") {
       const t = setTimeout(() => setPhase("typing"), seqIdx === 0 ? 800 : 500);
+
       return () => clearTimeout(t);
     }
 
@@ -44,58 +49,65 @@ export function Terminal() {
           },
           55 + Math.random() * 35,
         );
-        return () => clearTimeout(t);
-      } else {
-        const t = setTimeout(() => {
-          setLines((l) => [...l, { type: "cmd", text: step.cmd }]);
-          setTyping("");
-          setCharIdx(0);
-          setPhase("output");
-        }, 220);
+
         return () => clearTimeout(t);
       }
+
+      const t = setTimeout(() => {
+        setLines((l) => [...l, { type: "cmd", text: step.cmd }]);
+        setTyping("");
+        setCharIdx(0);
+        setPhase("output");
+      }, 220);
+
+      return () => clearTimeout(t);
     }
 
     if (phase === "output") {
       const t = setTimeout(() => {
         setLines((l) => [...l, { type: "output", text: step.output }]);
+
         setSeqIdx((i) => i + 1);
         setPhase("idle");
       }, step.delay);
+
       return () => clearTimeout(t);
     }
-  }, [phase, charIdx, seqIdx, transalatedTerminalData]);
+  }, [phase, charIdx, seqIdx, translatedTerminalData]);
 
   return (
-    // relative + isolate: contém as manchas (absolute) dentro deste wrapper, sem vazar pro resto da página
     <div className="relative isolate">
       <div
         aria-hidden
         className="pointer-events-none absolute -inset-16 -z-10 flex items-center justify-center"
       >
         <div
-          className="w-[95%] h-[95%] blur-3xl opacity-90 dark:opacity-90
-               bg-cyan-700 dark:bg-zinc-600
-               animate-blob-morph"
+          className="
+            w-[95%] h-[95%]
+            blur-3xl opacity-90
+            dark:opacity-90
+            bg-cyan-700 dark:bg-zinc-600
+            animate-blob-morph
+          "
           style={{
             borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
           }}
         />
       </div>
+
       <div className="rounded-lg overflow-hidden bg-[#0e0f14] border border-[#2a2b35] shadow-[0_24px_84px_rgba(0,0,0,0.5)] min-h-80">
-        {/* Title bar */}
         <div className="flex items-center gap-3 px-4 py-2.5 bg-[#1a1b24] border-b border-[#2a2b35]">
           <div className="flex gap-1.5">
             <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
             <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
             <div className="w-3 h-3 rounded-full bg-[#28c840]" />
           </div>
+
           <div className="flex justify-center w-full mr-10">
             <span className="mono text-xs text-white">gustavo@archlinux</span>
           </div>
         </div>
 
-        {/* Output area */}
         <div
           ref={termRef}
           className="flex flex-col gap-1.5 px-5 py-4 min-h-100 overflow-y-auto"
@@ -108,10 +120,11 @@ export function Terminal() {
             ),
           )}
 
-          {/* Active typing line */}
           <div className="flex gap-2 items-center mono text-sm min-h-[22px]">
             <span className="text-[#22c55e]">$</span>
+
             <span>{renderCommand(typing)}</span>
+
             <span className="inline-block w-2 h-[1em] bg-[#f87171] align-text-bottom animate-[blink_1s_step-end_infinite]" />
           </div>
         </div>
@@ -122,6 +135,7 @@ export function Terminal() {
 
 function renderCommand(text: string) {
   const spaceIdx = text.indexOf(" ");
+
   if (spaceIdx === -1) {
     return <span className="text-[#22c55e] text-[12px]">{text}</span>;
   }
@@ -132,6 +146,7 @@ function renderCommand(text: string) {
   return (
     <>
       <span className="text-[#22c55e] text-[12px]">{command}</span>
+
       <span className="text-[#f3f4f6] text-[12px]">{rest}</span>
     </>
   );
@@ -154,6 +169,7 @@ function TerminalLine({
       </div>
     );
   }
+
   if (isOutput) {
     return (
       <div className="mono text-[12px] leading-relaxed whitespace-pre text-[#9ca3af]">
@@ -161,5 +177,6 @@ function TerminalLine({
       </div>
     );
   }
+
   return null;
 }
