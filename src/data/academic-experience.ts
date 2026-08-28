@@ -38,7 +38,7 @@ export const academicData: Record<Languages, ExperienceSection> = {
         role: "Technologist, Systems Analysis and Development",
         period: "Jan 2025 — Dec 2026 · Ongoing",
         description:
-          "Deepened my use of Java, Spring Boot, React, TypeScript, React Native, and GitHub Actions in hands-on projects, with a focus on systems architecture and software engineering best practices. I developed a HAE (extracurricular activity hours) control system now adopted by multiple FATEC units, applying the full development cycle from requirements gathering to delivery.",
+          "Deepened my use of Java, Spring Boot, React, TypeScript, React Native, and GitHub Actions in hands-on projects, with a focus on systems architecture and software engineering practices. I developed a HAE (extracurricular activity hours) control system now adopted by multiple FATEC units, applying the full development cycle from requirements gathering to delivery.",
       },
       {
         company: "Wizard by Pearson",

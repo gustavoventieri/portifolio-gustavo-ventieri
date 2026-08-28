@@ -32,7 +32,7 @@ export function EventCarousel() {
       <div className="flex gap-2.5 items-stretch">
         {/* Featured image */}
         <div
-          className="basis-[62%] grow-0 shrink-0 relative rounded-[10px] overflow-hidden bg-[#1a1b24] cursor-pointer aspect-[4/3]"
+          className="basis-[62%] grow-0 shrink-0 relative rounded-[10px] overflow-hidden bg-[#1a1b24] cursor-pointer aspect-4/3"
           onMouseEnter={() => setHovered(0)}
           onMouseLeave={() => setHovered(null)}
         >
@@ -41,7 +41,7 @@ export function EventCarousel() {
             alt={featured.title}
             fill
             sizes="(max-width: 768px) 62vw, 40vw"
-            className="object-cover transition-transform duration-[400ms] ease-in-out"
+            className="object-cover transition-transform duration-400 ease-in-out"
           />
           {/* Permanent subtle gradient at bottom for title */}
           <div
@@ -53,10 +53,10 @@ export function EventCarousel() {
           />
           {/* Hover overlay */}
           <div className={overlayClass(hovered === 0)} style={overlayGradient}>
-            <p className="text-white text-[0.7rem] font-mono mb-[3px] opacity-75">
+            <p className="text-white text-[0.7rem] font-mono mb-0.75 opacity-75">
               {featured.title}
             </p>
-            <p className="text-white/90 text-[0.78rem] leading-[1.5]">
+            <p className="text-white/90 text-[0.78rem] leading-normal">
               {featured.desc}
             </p>
           </div>
@@ -71,7 +71,7 @@ export function EventCarousel() {
             </span>
           </div>
           {/* Featured badge */}
-          <div className="absolute top-2.5 left-2.5 bg-[var(--accent)] text-white font-mono text-[0.6rem] font-semibold px-2 py-0.5 rounded tracking-[0.05em]">
+          <div className="absolute top-2.5 left-2.5 bg-(--accent) text-white font-mono text-[0.6rem] font-semibold px-2 py-0.5 rounded tracking-wider">
             ★ DESTAQUE
           </div>
         </div>
@@ -81,7 +81,7 @@ export function EventCarousel() {
           {[thumb1, thumb2].map((photo, i) => (
             <div
               key={i}
-              className="flex-1 relative rounded-lg overflow-hidden bg-[#1a1b24] cursor-pointer border border-[var(--border)] min-h-0"
+              className="flex-1 relative rounded-lg overflow-hidden bg-[#1a1b24] cursor-pointer border border-(--border) min-h-0"
               onMouseEnter={() => setHovered(i + 1)}
               onMouseLeave={() => setHovered(null)}
               onClick={() => setActive((active + i + 1) % n)}
@@ -91,7 +91,7 @@ export function EventCarousel() {
                 alt={photo.title}
                 fill
                 sizes="(max-width: 768px) 38vw, 24vw"
-                className="object-cover brightness-[0.75] transition-[filter] duration-[250ms]"
+                className="object-cover brightness-[0.75] transition-[filter] duration-250"
               />
               <div
                 className={overlayClass(hovered === i + 1)}
@@ -106,7 +106,7 @@ export function EventCarousel() {
               </div>
               {/* Always-visible title on thumbs */}
               <div
-                className={`absolute bottom-0 left-0 right-0 px-2.5 pt-2 pb-[7px] transition-opacity duration-200 ${
+                className={`absolute bottom-0 left-0 right-0 px-2.5 pt-2 pb-1.75 transition-opacity duration-200 ${
                   hovered === i + 1 ? "opacity-0" : "opacity-100"
                 }`}
                 style={{
@@ -131,10 +131,10 @@ export function EventCarousel() {
             <button
               key={i}
               onClick={() => setActive(i)}
-              className={`h-1.5 rounded-full border-0 cursor-pointer p-0 transition-[width,background] duration-[250ms] ${
+              className={`h-1.5 rounded-full border-0 cursor-pointer p-0 transition-[width,background] duration-250 ${
                 i === active
-                  ? "w-5 bg-[var(--accent)]"
-                  : "w-1.5 bg-[var(--border)]"
+                  ? "w-5 bg-(--accent)"
+                  : "w-1.5 bg-(--border)"
               }`}
             />
           ))}
@@ -151,7 +151,7 @@ export function EventCarousel() {
             <button
               key={label}
               onClick={fn}
-              className="w-[34px] h-[34px] rounded-lg bg-[var(--card-bg)] border border-[var(--border)] text-[var(--fg)] cursor-pointer flex items-center justify-center transition-colors duration-200 hover:border-[var(--accent)] hover:text-[var(--accent)]"
+              className="w-8.5 h-8.5 rounded-lg bg-(--card-bg) border border-(--border) text-(--fg) cursor-pointer flex items-center justify-center transition-colors duration-200 hover:border-(--accent) hover:text-(--accent)"
             >
               {label === "prev" ? (
                 <svg
@@ -186,7 +186,7 @@ export function EventCarousel() {
       </div>
 
       {/* Counter */}
-      <p className="mono text-[0.65rem] text-[var(--muted)] text-right -mt-1">
+      <p className="mono text-[0.65rem] text-(--muted) text-right -mt-1">
         {active + 1} / {n} eventos
       </p>
     </div>
