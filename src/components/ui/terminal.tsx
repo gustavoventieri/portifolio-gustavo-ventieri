@@ -76,13 +76,15 @@ export function Terminal() {
   }, [phase, charIdx, seqIdx, translatedTerminalData]);
 
   return (
-    <div className="relative isolate">
+    <div className="relative isolate ">
       <div
         aria-hidden
-        className="pointer-events-none absolute -inset-16 -z-10 flex items-center justify-center"
+        className="pointer-events-none absolute -inset-8 sm:-inset-16 -z-10 flex items-center justify-center"
       >
-        {/* Mancha orgânica: borderRadius assimétrico só existe como valor arbitrário no Tailwind */}
-        <div className="w-[95%] h-[95%] blur-3xl opacity-90 dark:opacity-90 bg-cyan-700 dark:bg-zinc-600 animate-blob-morph rounded-[60%_40%_30%_80%/60%_30%_80%_40%]" />
+        <div
+          className="w-[95%]  h-[95%] blur-2xl sm:blur-3xl opacity-90 bg-cyan-700 dark:bg-zinc-600 animate-blob-morph"
+          style={{ borderRadius: "60% 40% 30% 80% / 60% 30% 80% 40%" }}
+        />
       </div>
 
       <div className="rounded-lg overflow-hidden bg-[#0e0f14] border border-[#2a2b35] shadow-[0_24px_84px_rgba(0,0,0,0.5)] min-h-80">

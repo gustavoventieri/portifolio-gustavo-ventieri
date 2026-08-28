@@ -28,7 +28,7 @@ export interface ProjectMeta {
 export const projectsMeta: ProjectMeta[] = [
   {
     id: "financial-application",
-    repo: "#",
+    repo: "https://github.com/gustavoventieri/financial-application",
     demo: "#",
     color: "#059669",
     status: "developing",

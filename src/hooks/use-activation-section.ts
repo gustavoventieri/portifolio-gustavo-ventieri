@@ -22,8 +22,7 @@ export function useActiveSection(ids: string[]) {
         }
       },
       {
-        // considera "ativa" quando a seção passa pela faixa central da tela
-        rootMargin: "-40% 0px -50% 0px",
+        rootMargin: "-60% 0px -40% 0px",
         threshold: 0,
       },
     );

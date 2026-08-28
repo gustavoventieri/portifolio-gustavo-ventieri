@@ -45,6 +45,13 @@ body {
     color 0.3s;
 }
 
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden; /* já existe, mantido */
+}
 h1,
 h2,
 h3,

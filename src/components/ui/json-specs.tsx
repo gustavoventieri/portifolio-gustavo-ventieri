@@ -15,19 +15,11 @@ export function JsonSpecsCard({ data }: { data: AboutType }) {
     <div className="relative isolate">
       <div
         aria-hidden
-        className="pointer-events-none absolute -inset-16 -z-10 flex items-center justify-center"
+        className="pointer-events-none absolute -inset-8 sm:-inset-16 -z-10 flex items-center justify-center"
       >
         <div
-          className="
-            w-[95%] h-[95%]
-            blur-3xl opacity-90
-            dark:opacity-90
-            bg-cyan-700 dark:bg-zinc-600
-            animate-blob-morph
-          "
-          style={{
-            borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
-          }}
+          className="w-[95%]  h-[95%] blur-2xl sm:blur-3xl opacity-90 bg-cyan-700 dark:bg-zinc-600 animate-blob-morph"
+          style={{ borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%" }}
         />
       </div>
       <div

@@ -7,6 +7,7 @@ export interface NavItem {
 
 export const navItems: Record<Languages, NavItem[]> = {
   pt: [
+    { label: "Início", href: "#hero" },
     { label: "Sobre", href: "#about" },
     { label: "Projetos", href: "#projects" },
     { label: "Certificações", href: "#certifications" },
@@ -14,6 +15,7 @@ export const navItems: Record<Languages, NavItem[]> = {
     { label: "Contato", href: "#contact" },
   ],
   en: [
+    { label: "Home", href: "#hero" },
     { label: "About", href: "#about" },
     { label: "Projects", href: "#projects" },
     { label: "Certifications", href: "#certifications" },
