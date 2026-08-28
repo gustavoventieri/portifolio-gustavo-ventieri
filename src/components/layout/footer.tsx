@@ -1,14 +1,29 @@
-export const Footer = () => {
+import { contactData, contactIcons, getHref } from "@/data/contact"; // ajuste o path conforme sua estrutura
+
+export function Footer() {
   return (
-    <footer className="w-full  border-t border-line bg-background py-3 font-mono">
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-center px-6 gap-4">
-        {/* Esquerda: Copyright e Direitos */}
-        <div className="text-[13px] text-zinc-500 ">
-          © {new Date().getFullYear()}{" "}
-          <span className="text-hero">Gustavo Ventieri</span>.
-          <span className="ml-2 opacity-50">All rights reserved.</span>
+    <footer className="border-t border-(--border) mt-0">
+      <div className="max-w-400 mx-auto px-6 py-7 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <span className="mono text-xs text-(--muted)">
+          © 2026 Gustavo Ventieri. All rights reserved.
+        </span>
+        <div className="flex items-center gap-5">
+          {contactData.map((contact) => {
+            const Icon = contactIcons[contact.name];
+            return (
+              <a
+                key={contact.name}
+                href={getHref(contact)}
+                target={contact.name !== "Email" ? "_blank" : undefined}
+                rel={contact.name !== "Email" ? "noopener" : undefined}
+                className="icon-link"
+              >
+                <Icon size={16} />
+              </a>
+            );
+          })}
         </div>
       </div>
     </footer>
   );
-};
+}

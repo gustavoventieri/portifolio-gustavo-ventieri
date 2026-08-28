@@ -1,8 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/providers/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { ActionButton } from "@/components/layout/action-button";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -63,11 +63,12 @@ export const App = ({ children }: { children: React.ReactNode }) => {
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col ">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <ActionButton />
-        <Footer />
+      <body className="min-h-full flex flex-col " suppressHydrationWarning>
+        <ThemeProvider attribute="class" defaultTheme="light">
+          <Header />
+          <main className="flex-1 pt-20 lg:pt-0">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
