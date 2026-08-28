@@ -1,6 +1,7 @@
 "use client";
 
 import { JsonSpecsCard } from "@/components/ui/json-specs";
+import { SectionHeading } from "@/components/ui/section-heading";
 import { useLanguage } from "@/contexts/language-contexts";
 import { aboutData } from "@/data/about";
 
@@ -13,9 +14,10 @@ export function About() {
       id="about"
       className="min-h-[85vh]  justify-center flex flex-col  "
     >
-      <h2 className="text-[1.75rem] font-bold mb-10 text-(--heading)">
-        {translatedAboutData.title}
-      </h2>
+      <SectionHeading
+        label={translatedAboutData.subTitle}
+        title={translatedAboutData.title}
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
         {/* Bio + skills */}

@@ -1,4 +1,5 @@
 import { About } from "./components/about";
+import { Experience } from "./components/experience";
 import Hero from "./components/hero";
 import { Projects } from "./components/projects";
 
@@ -10,6 +11,9 @@ export default function Home() {
       <About />
       <div className="section-divider my-10 md:my-0" />
       <Projects />
+      <div className="section-divider my-10 md:my-0" />
+      <Experience />
+      <div className="section-divider my-10 md:my-0" />
     </div>
   );
 }

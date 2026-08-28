@@ -1,6 +1,7 @@
 "use client";
 
 import { IconGithub } from "@/components/ui/icons";
+import { SectionHeading } from "@/components/ui/section-heading";
 import { useLanguage } from "@/contexts/language-contexts";
 import {
   projectsData,
@@ -24,18 +25,8 @@ export function Projects() {
       id="projects"
       className="min-h-[85vh]  justify-center flex flex-col"
     >
-      <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
-        <h2 className="text-[1.75rem] font-bold text-(--heading)">
-          {t.s3Title}
-        </h2>
-        <a
-          href="https://github.com/gustavoventieri?tab=repositories"
-          target="_blank"
-          rel="noopener"
-          className="mono text-xs flex items-center gap-1.5 hover:underline no-underline text-(--accent)"
-        >
-          {t.s3Github} <ExternalLink size={12} />
-        </a>
+      <div className="flex justify-between  items-start ">
+        <SectionHeading label={t.s3SubTitle} title={t.s3Title} />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

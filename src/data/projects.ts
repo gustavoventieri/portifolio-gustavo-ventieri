@@ -3,16 +3,19 @@ import { Languages } from "./languages";
 export interface ProjectsSectionType {
   s3Title: string;
   s3Github: string;
+  s3SubTitle: string;
 }
 
 export const projectsSectionData: Record<Languages, ProjectsSectionType> = {
   pt: {
     s3Title: "Projetos",
     s3Github: "Ver no GitHub",
+    s3SubTitle: "// 02. Projetos Recentes",
   },
   en: {
     s3Title: "Projects",
     s3Github: "View on GitHub",
+    s3SubTitle: "// 02. Projects",
   },
 };
 

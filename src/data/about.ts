@@ -2,6 +2,7 @@ import { Languages } from "./languages";
 
 export interface AboutType {
   title: string;
+  subTitle: string;
   description1: string;
   description2: string;
   description3: string;
@@ -18,6 +19,7 @@ export interface AboutType {
 export const aboutData: Record<Languages, AboutType> = {
   pt: {
     title: "Sobre mim",
+    subTitle: "// 01. Sobre",
 
     description1:
       "Sou um engenheiro de software com foco em desenvolvimento backend e experiência em aplicações full-stack. Gosto de transformar problemas de negócio em soluções bem estruturadas, buscando sempre escrever código limpo, organizado e de fácil manutenção.",
@@ -40,6 +42,7 @@ export const aboutData: Record<Languages, AboutType> = {
 
   en: {
     title: "About me",
+    subTitle: "// 01. About",
 
     description1:
       "I am a software engineer focused on backend development with experience in full-stack applications. I enjoy turning business problems into well-structured solutions, always striving to write clean, organized, and maintainable code.",

@@ -36,7 +36,7 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-3">
-            <a href="#projetos" className="btn-primary">
+            <a href="#projects" className="btn-primary">
               {transalatedHeroData.btn01} <ArrowRight size={15} />
             </a>
             <a href="#" className="btn-outline">
