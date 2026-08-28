@@ -10,16 +10,19 @@ export const navItems: Record<Languages, NavItem[]> = {
     { label: "Início", href: "#hero" },
     { label: "Sobre", href: "#about" },
     { label: "Projetos", href: "#projects" },
-    { label: "Certificações", href: "#certifications" },
     { label: "Experiência", href: "#experience" },
+    { label: "Acadêmico", href: "#academic" },
+
+    { label: "Certificações", href: "#certifications" },
     { label: "Contato", href: "#contact" },
   ],
   en: [
     { label: "Home", href: "#hero" },
     { label: "About", href: "#about" },
     { label: "Projects", href: "#projects" },
-    { label: "Certifications", href: "#certifications" },
     { label: "Experience", href: "#experience" },
+    { label: "Academic", href: "#academic" },
+    { label: "Certifications", href: "#certifications" },
     { label: "Contact", href: "#contact" },
   ],
 };

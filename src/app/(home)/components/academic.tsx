@@ -2,14 +2,14 @@
 
 import { SectionHeading } from "@/components/ui/section-heading";
 import { useLanguage } from "@/contexts/language-contexts";
-import { experienceData } from "@/data/profissional-experience";
-export function Experience() {
+import { academicData } from "@/data/academic-experience";
+export function Academic() {
   const { language } = useLanguage();
-  const { title, description, items } = experienceData[language];
+  const { title, description, items } = academicData[language];
 
   return (
     <section
-      id="experience"
+      id="academic"
       className="min-h-[85vh] justify-center flex flex-col"
     >
       <SectionHeading label={description} title={title} />
@@ -68,7 +68,7 @@ export function Experience() {
               {e.period}
             </p>
             <p
-               style={{
+              style={{
                 fontSize: "0.875rem",
                 lineHeight: 1.75,
                 color: "var(--fg)",
