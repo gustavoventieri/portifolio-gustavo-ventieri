@@ -14,7 +14,7 @@ export function Experience() {
     >
       <SectionHeading label={description} title={title} />
 
-      <div className="relative flex flex-col gap-0" style={{ paddingLeft: 28 }}>
+      <div className="relative flex flex-col gap-0" style={{ paddingLeft: 23 }}>
         <div
           style={{
             position: "absolute",
@@ -68,7 +68,7 @@ export function Experience() {
               {e.period}
             </p>
             <p
-               style={{
+              style={{
                 fontSize: "0.875rem",
                 lineHeight: 1.75,
                 color: "var(--fg)",

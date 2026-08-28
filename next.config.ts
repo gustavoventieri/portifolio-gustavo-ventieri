@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "skillicons.dev",
+        hostname: "images.unsplash.com",
       },
     ],
   },

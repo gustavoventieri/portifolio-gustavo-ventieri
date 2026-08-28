@@ -1,8 +1,10 @@
 "use client";
 
+import { EventCarousel } from "@/components/ui/event-carrousel";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { useLanguage } from "@/contexts/language-contexts";
 import { academicData } from "@/data/academic-experience";
+
 export function Academic() {
   const { language } = useLanguage();
   const { title, description, items } = academicData[language];
@@ -13,73 +15,43 @@ export function Academic() {
       className="min-h-[85vh] justify-center flex flex-col"
     >
       <SectionHeading label={description} title={title} />
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="relative flex flex-col gap-0 pl-5.75">
+          <div className="absolute left-1.25 top-2 bottom-2 w-px bg-(--border)" />
 
-      <div className="relative flex flex-col gap-0" style={{ paddingLeft: 28 }}>
-        <div
-          style={{
-            position: "absolute",
-            left: 5,
-            top: 8,
-            bottom: 8,
-            width: 1,
-            background: "var(--border)",
-          }}
-        />
-
-        {items.map((e, i) => (
-          <div
-            key={i}
-            className="relative flex flex-col gap-2"
-            style={{ paddingBottom: i < items.length - 1 ? 40 : 0 }}
-          >
+          {items.map((e, i) => (
             <div
-              className="timeline-dot"
-              style={{
-                position: "absolute",
-                left: -23,
-                top: 5,
-                width: 11,
-                height: 11,
-                borderRadius: "50%",
-              }}
-            />
-
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-              <span
-                style={{
-                  fontWeight: 600,
-                  color: "var(--heading)",
-                  fontSize: "0.95rem",
-                }}
-              >
-                {e.role}
-              </span>
-              <span
-                style={{
-                  color: "var(--accent)",
-                  fontWeight: 500,
-                  fontSize: "0.875rem",
-                }}
-              >
-                @ {e.company}
-              </span>
-            </div>
-            <p className="mono text-xs" style={{ color: "var(--muted)" }}>
-              {e.period}
-            </p>
-            <p
-              style={{
-                fontSize: "0.875rem",
-                lineHeight: 1.75,
-                color: "var(--fg)",
-                maxWidth: 640,
-                textAlign: "justify",
-              }}
+              key={i}
+              className={`relative flex flex-col gap-2 ${
+                i < items.length - 1 ? "pb-10" : "pb-0"
+              }`}
             >
-              {e.description}
-            </p>
-          </div>
-        ))}
+              <div className="timeline-dot absolute left-[-23px] top-[5px] w-[11px] h-[11px] rounded-full" />
+
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span className="font-semibold text-[0.95rem] text-[var(--heading)]">
+                  {e.role}
+                </span>
+                <span className="font-medium text-sm text-[var(--accent)]">
+                  @ {e.company}
+                </span>
+              </div>
+
+              <p className="mono text-xs text-[var(--muted)]">{e.period}</p>
+
+              <p className="text-sm leading-[1.75] text-[var(--fg)] max-w-[640px] text-justify">
+                {e.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div>
+          <p className="mono text-xs mb-4 text-[var(--muted)]">
+            {"// Eventos & comunidade"}
+          </p>
+          <EventCarousel />
+        </div>
       </div>
     </section>
   );

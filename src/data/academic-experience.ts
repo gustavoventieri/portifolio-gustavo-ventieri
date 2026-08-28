@@ -11,7 +11,7 @@ export const academicData: Record<Languages, ExperienceSection> = {
         role: "Tecnólogo em Análise e Desenvolvimento de Sistemas",
         period: "Jan 2025 — Dez 2026 · Em andamento",
         description:
-          "Formação com foco em engenharia de software, banco de dados e arquitetura de sistemas, unindo teoria sólida à prática de desenvolvimento full-stack aplicada a projetos reais.",
+          "Aprofundei o uso de Java, Spring Boot, React, TypeScript, React Native e GitHub Actions em projetos práticos, com foco em arquitetura de sistemas e boas práticas de engenharia de software. Desenvolvi um sistema de controle de HAEs adotado por diversas unidades da FATEC, aplicando o ciclo completo de desenvolvimento, do levantamento de requisitos à entrega.",
       },
       {
         company: "Wizard by Pearson",
@@ -25,7 +25,7 @@ export const academicData: Record<Languages, ExperienceSection> = {
         role: "Ensino Técnico Integrado ao Médio, Desenvolvimento de Sistemas - AMS",
         period: "Mar 2022 — Dez 2024 · Finalizado",
         description:
-          "Durante o curso, construí uma base sólida em programação e análise de sistemas, adquirindo conhecimento em diversas áreas da tecnologia. Aprendi linguagens de programação como JavaScript, Java, Kotlin, C++, Python, PHP e MySQL, além de linguagens de marcação e estilização como HTML e CSS. Também explorei o framework Laravel, o que me ajudou a entender o desenvolvimento web de forma mais estruturada e eficiente. Além disso, adquiri experiência em diagramação UML, incluindo diagramas de casos de uso, classes, sequência, atividades e máquina de estados. Fora da programação, estudei metodologias de testes de software e redes de computadores, abrangendo conceitos essenciais e aplicações práticas.",
+          "Construí minha base em programação, lógica e front-end, aprendendo a estruturar código, projetar arquitetura de sistemas e documentar soluções. Trabalhei com Java, PHP, Laravel, MySQL, SQL Server, JavaScript, HTML, CSS e React, além de diagramação UML, testes de software e redes de computadores.",
       },
     ],
   },
@@ -38,7 +38,7 @@ export const academicData: Record<Languages, ExperienceSection> = {
         role: "Technologist, Systems Analysis and Development",
         period: "Jan 2025 — Dec 2026 · Ongoing",
         description:
-          "Degree focused on software engineering, database design, and systems architecture, combining strong theoretical foundations with hands-on full-stack development applied to real projects.",
+          "Deepened my use of Java, Spring Boot, React, TypeScript, React Native, and GitHub Actions in hands-on projects, with a focus on systems architecture and software engineering best practices. I developed a HAE (extracurricular activity hours) control system now adopted by multiple FATEC units, applying the full development cycle from requirements gathering to delivery.",
       },
       {
         company: "Wizard by Pearson",
@@ -52,8 +52,41 @@ export const academicData: Record<Languages, ExperienceSection> = {
         role: "Technical High School, Systems Development - AMS",
         period: "Mar 2022 — Dec 2024 · Completed",
         description:
-          "During this course, I developed a strong foundation in both programming and system analysis, gaining knowledge across various areas of technology. I learned programming languages such as JavaScript, Java, Kotlin, C++, Python, PHP, and MySQL, along with markup and styling languages like HTML and CSS. Additionally, I explored the Laravel framework, which helped me understand web development in a more structured and efficient way. I also gained experience in UML diagramming, including use case diagrams, class diagrams, sequence diagrams, activity diagrams, and state machine diagrams. Beyond programming, I studied software testing methodologies and computer networks, covering essential concepts and practical applications.",
+          "Built my foundation in programming, logic, and front-end development, learning to structure code, design systems architecture, and document solutions. I worked with Java, PHP, Laravel, MySQL, SQL Server, JavaScript, HTML, CSS, and React, along with UML diagramming, software testing, and computer networks.",
       },
     ],
   },
 };
+
+export const eventeData = [
+  {
+    url: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=900&h=600&fit=crop&auto=format",
+    title: "Campus Party 2023",
+    desc: "Palestra sobre arquitetura de microsserviços para mais de 500 pessoas em São Paulo.",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=900&h=600&fit=crop&auto=format",
+    title: "The Developers Conference 2022",
+    desc: "Apresentei o projeto StreamFlow no track de backend da maior conf de devs do Brasil.",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=900&h=600&fit=crop&auto=format",
+    title: "GopherCon Brasil 2023",
+    desc: "Workshop de performance em Go com foco em profiling e otimização de alocações.",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1582192730841-2a682d7375f9?w=900&h=600&fit=crop&auto=format",
+    title: "DevOps Days 2022",
+    desc: "Participação no painel sobre cultura DevOps em empresas de médio porte.",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=900&h=600&fit=crop&auto=format",
+    title: "AWS re:Invent 2021",
+    desc: "Networking internacional e workshops hands-on de arquitetura cloud em Las Vegas.",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1632910121591-29e2484c0259?w=900&h=600&fit=crop&auto=format",
+    title: "Hackathon iFood 2022",
+    desc: "1º lugar com solução de otimização de rotas de entrega implementada em Go + Redis.",
+  },
+];

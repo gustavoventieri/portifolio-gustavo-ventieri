@@ -81,10 +81,7 @@ export function Terminal() {
         aria-hidden
         className="pointer-events-none absolute -inset-8 sm:-inset-16 -z-10 flex items-center justify-center"
       >
-        <div
-          className="w-[95%]  h-[95%] blur-2xl sm:blur-3xl opacity-90 bg-cyan-700 dark:bg-zinc-600 animate-blob-morph"
-          style={{ borderRadius: "60% 40% 30% 80% / 60% 30% 80% 40%" }}
-        />
+        <div className="w-[95%]  h-[95%] rounded-[60%_40%_30%_80%/60%_30%_80%_40%] blur-2xl sm:blur-3xl opacity-90 bg-cyan-700 dark:bg-zinc-600 animate-blob-morph" />
       </div>
 
       <div className="rounded-lg overflow-hidden bg-[#0e0f14] border border-[#2a2b35] shadow-[0_24px_84px_rgba(0,0,0,0.5)] min-h-80">
@@ -112,7 +109,7 @@ export function Terminal() {
             ),
           )}
 
-          <div className="flex gap-2 items-center mono text-sm min-h-[22px]">
+          <div className="flex gap-2 items-center mono text-sm min-h-5.5">
             <span className="text-[#22c55e]">$</span>
 
             <span>{renderCommand(typing)}</span>

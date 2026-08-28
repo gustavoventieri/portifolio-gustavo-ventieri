@@ -6,60 +6,20 @@ export function SectionHeading({
   title: string;
 }) {
   return (
-    <div style={{ marginBottom: 48 }}>
-      {/* Eyebrow row: label + extending line */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 12,
-          marginBottom: 14,
-        }}
-      >
-        <span
-          className="mono"
-          style={{
-            fontSize: "0.72rem",
-            color: "var(--accent)",
-            letterSpacing: "0.08em",
-            whiteSpace: "nowrap",
-          }}
-        >
+    <div className="mb-12">
+      <div className="flex items-center gap-3 mb-3.5">
+        <span className="mono text-[0.72rem] text-(--accent) tracking-[0.08em] whitespace-nowrap">
           {label}
         </span>
-        <div
-          style={{
-            flex: 1,
-            height: 1,
-            background: "linear-gradient(to right, var(--accent), transparent)",
-            opacity: 0.35,
-          }}
-        />
+        <div className="flex-1 h-px bg-[linear-gradient(to_right,var(--accent),transparent)] opacity-35" />
       </div>
 
       {/* Title with left accent bar + underline */}
-      <div style={{ position: "relative", paddingLeft: 20 }}>
+      <div className="relative pl-5">
         {/* Left bar */}
-        <div
-          style={{
-            position: "absolute",
-            left: 0,
-            top: "10%",
-            bottom: "10%",
-            width: 3,
-            borderRadius: 2,
-            background: "var(--accent)",
-          }}
-        />
-        <h2
-          style={{
-            fontSize: "clamp(1.6rem, 3vw, 2.1rem)",
-            fontWeight: 700,
-            color: "var(--heading)",
-            letterSpacing: "-0.02em",
-            lineHeight: 1.15,
-          }}
-        >
+        <div className="absolute left-0 top-[10%] bottom-[10%] w-0.75 rounded-xs bg-(--accent)" />
+
+        <h2 className="text-[clamp(1.6rem,3vw,2.1rem)] font-bold text-(--heading) tracking-[-0.02em] leading-[1.15]">
           {title}
         </h2>
       </div>

@@ -13,7 +13,6 @@ export function ThemeToggleButton() {
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label="Alternar tema"
-      // fixed no canto superior direito, fora do fluxo normal do layout
       className="fixed top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center border border-(--border) bg-(--card-bg) text-(--heading) hover:border-(--accent) hover:text-(--accent) transition-colors"
     >
       {isDark ? <Sun size={18} /> : <Moon size={18} />}
