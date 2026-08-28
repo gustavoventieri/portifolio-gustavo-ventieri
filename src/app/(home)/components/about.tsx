@@ -3,11 +3,12 @@
 import { JsonSpecsCard } from "@/components/ui/json-specs";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { useLanguage } from "@/contexts/language-contexts";
-import { aboutData } from "@/data/about";
+import { aboutData, jsonSpecsData } from "@/data/about";
 
 export function About() {
   const { language } = useLanguage();
   const translatedAboutData = aboutData[language];
+  const translatedJsonSpecs = jsonSpecsData[language];
 
   return (
     <section
@@ -34,7 +35,7 @@ export function About() {
         </div>
 
         <div className="flex flex-col">
-          <JsonSpecsCard data={aboutData[language]} />
+          <JsonSpecsCard data={translatedJsonSpecs} />
         </div>
       </div>
     </section>

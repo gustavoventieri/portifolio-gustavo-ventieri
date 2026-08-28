@@ -26,20 +26,20 @@ export function Academic() {
                 i < items.length - 1 ? "pb-10" : "pb-0"
               }`}
             >
-              <div className="timeline-dot absolute left-[-23px] top-[5px] w-[11px] h-[11px] rounded-full" />
+              <div className="timeline-dot absolute -left-5.75 top-1.25 w-2.75 h-2.75 rounded-full" />
 
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                <span className="font-semibold text-[0.95rem] text-[var(--heading)]">
+                <span className="font-semibold text-[0.95rem] text-(--heading)">
                   {e.role}
                 </span>
-                <span className="font-medium text-sm text-[var(--accent)]">
+                <span className="font-medium text-sm text-(--accent)">
                   @ {e.company}
                 </span>
               </div>
 
-              <p className="mono text-xs text-[var(--muted)]">{e.period}</p>
+              <p className="mono text-xs text-(--muted)">{e.period}</p>
 
-              <p className="text-sm leading-[1.75] text-[var(--fg)] max-w-[640px] text-justify">
+              <p className="text-sm leading-[1.75] text-(--fg) max-w-160 text-justify">
                 {e.description}
               </p>
             </div>
@@ -47,7 +47,7 @@ export function Academic() {
         </div>
 
         <div>
-          <p className="mono text-xs mb-4 text-[var(--muted)]">
+          <p className="mono text-xs mb-4 text-(--muted)">
             {"// Eventos & comunidade"}
           </p>
           <EventCarousel />

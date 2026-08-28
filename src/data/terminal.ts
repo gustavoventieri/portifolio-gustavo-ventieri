@@ -8,7 +8,7 @@ export const terminalData: Record<Languages, TerminalType> = {
   pt: {
     output: [
       "Gustavo Ventieri — Software Engineer",
-      "Java, Spring Boot, Go, Next.js, TypeScript,\nPostgreSQL, Docker, Kubernetes",
+      "Java, Spring Boot, Go, Next.js, TypeScript,\nPostgreSQL, Docker, Kubernetes, Kafka, MicroServiços",
       "Sistemas Distribuídos, Design de API, \nOpen Source & Arquitetura Limpa",
       "github: github.com/gustavoventieri\nemail: contato.gustavoventieri@gmail.com",
       "Aberto a trabalho",
@@ -17,7 +17,7 @@ export const terminalData: Record<Languages, TerminalType> = {
   en: {
     output: [
       "Gustavo Ventieri — Software Engineer",
-      "Java, Spring Boot, Go, Next.js, TypeScript, \nPostgreSQL, Docker, Kubernetes",
+      "Java, Spring Boot, Go, Next.js, TypeScript, \nPostgreSQL, Docker, Kubernetes, Kafka, Microservices",
       "Distributed Systems, API Design, \nOpen Source & Clean Architecture",
       "github: github.com/gustavoventieri\nemail: contato.gustavoventieri@gmail.com",
       "Open to work",

@@ -3,11 +3,28 @@ import { Terminal } from "@/components/ui/terminal";
 import { useLanguage } from "@/contexts/language-contexts";
 import { contactData, contactIcons, getHref } from "@/data/contact";
 import { heroData } from "@/data/hero";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight, Download, FileText } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Hero() {
   const { language } = useLanguage();
   const transalatedHeroData = heroData[language];
+
+  const [resumeMenuOpen, setResumeMenuOpen] = useState(false);
+  const resumeMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (
+        resumeMenuRef.current &&
+        !resumeMenuRef.current.contains(e.target as Node)
+      ) {
+        setResumeMenuOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     // Espaçamento vertical da seção
@@ -39,9 +56,41 @@ export default function Hero() {
             <a href="#projects" className="btn-primary">
               {transalatedHeroData.btn01} <ArrowRight size={15} />
             </a>
-            <a href="#" className="btn-outline">
-              <Download size={15} /> {transalatedHeroData.btn02}
-            </a>
+
+            {/* Botão de download com dropdown PT/EN */}
+            <div className="relative" ref={resumeMenuRef}>
+              <button
+                type="button"
+                onClick={() => setResumeMenuOpen((open) => !open)}
+                className="btn-outline"
+              >
+                <Download size={15} /> {transalatedHeroData.btn02}
+              </button>
+
+              {resumeMenuOpen && (
+                <div className="absolute left-0 top-[calc(100%+8px)] z-20 flex flex-col overflow-hidden rounded-md border border-(--border) bg-white dark:bg-(--card-bg) shadow-lg min-w-45">
+                  <a
+                    href="/assets/curriculo-gustavo-ventieri-pt.pdf"
+                    download
+                    onClick={() => setResumeMenuOpen(false)}
+                    className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-(--fg) hover:bg-(--accent)/10 hover:text-(--accent) transition-colors"
+                  >
+                    <FileText size={14} />
+                    {language === "pt" ? "Português" : "Portuguese"}
+                  </a>
+                  <div className="h-px w-full bg-(--border)" />
+                  <a
+                    href="/assets/resume-gustavo-ventieri-en.pdf"
+                    download
+                    onClick={() => setResumeMenuOpen(false)}
+                    className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-(--fg) hover:bg-(--accent)/10 hover:text-(--accent) transition-colors"
+                  >
+                    <FileText size={14} />
+                    {language === "pt" ? "Inglês" : "English"}
+                  </a>
+                </div>
+              )}
+            </div>
           </div>
 
           <div className="flex items-center gap-4 mt-1">

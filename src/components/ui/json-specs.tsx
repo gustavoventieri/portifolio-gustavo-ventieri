@@ -1,7 +1,7 @@
-import { AboutType } from "@/data/about";
+import { JsonSpecs } from "@/data/about";
 import { Code } from "lucide-react";
 
-export function JsonSpecsCard({ data }: { data: AboutType }) {
+export function JsonSpecsCard({ data }: { data: JsonSpecs }) {
   const specs = [
     { key: "os", value: data.jsonOs },
     { key: "main_stack", value: data.jsonMainStack },

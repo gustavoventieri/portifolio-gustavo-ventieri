@@ -132,9 +132,7 @@ export function EventCarousel() {
               key={i}
               onClick={() => setActive(i)}
               className={`h-1.5 rounded-full border-0 cursor-pointer p-0 transition-[width,background] duration-250 ${
-                i === active
-                  ? "w-5 bg-(--accent)"
-                  : "w-1.5 bg-(--border)"
+                i === active ? "w-5 bg-(--accent)" : "w-1.5 bg-(--border)"
               }`}
             />
           ))}
@@ -186,8 +184,8 @@ export function EventCarousel() {
       </div>
 
       {/* Counter */}
-      <p className="mono text-[0.65rem] text-(--muted) text-right -mt-1">
-        {active + 1} / {n} eventos
+      <p className="mono text-[0.65rem] text-(--muted) text-right mb-2 md:mb-0">
+        {active + 1} de {n} eventos
       </p>
     </div>
   );
