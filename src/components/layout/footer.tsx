@@ -2,7 +2,7 @@ import { contactData, contactIcons, getHref } from "@/data/contact"; // ajuste o
 
 export function Footer() {
   return (
-    <footer className="border-t border-(--border) mt-0">
+    <footer className="border-t border-(--border) mt-20">
       <div className="max-w-400 mx-auto px-6 py-7 flex flex-col sm:flex-row items-center justify-between gap-4">
         <span className="mono text-xs text-(--muted)">
           © 2026 Gustavo Ventieri. All rights reserved.

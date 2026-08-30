@@ -30,9 +30,9 @@ export default function Hero() {
     // Espaçamento vertical da seção
     <section
       id="hero"
-      className="min-h-[85vh] flex justify-between  items-center"
+      className="min-h-[85vh] flex justify-between  items-center "
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center w-full">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center w-full pt-20 lg:pt-10">
         {/* Coluna esquerda */}
         <div className="flex flex-col gap-6 min-w-0 min-h-100 items-start justify-center">
           <div>
@@ -122,7 +122,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div>
+        <div className="">
           <Terminal key={language} />
         </div>
       </div>

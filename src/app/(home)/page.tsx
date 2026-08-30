@@ -8,13 +8,13 @@ export default function Home() {
   return (
     <div className="max-w-400 mx-auto items-center px-4 md:px-6  ">
       <Hero />
-      <div className="section-divider my-10 lg:my-0" />
+      <div className="section-divider my-20 " />
       <About />
-      <div className="section-divider my-10 lg:my-0" />
+      <div className="section-divider my-20 " />
       <Projects />
-      <div className="section-divider my-10 lg:my-0" />
+      <div className="section-divider my-20 " />
       <Experience />
-      <div className="section-divider my-10 lg:my-0" />
+      <div className="section-divider my-20 " />
       <Academic />
     </div>
   );
