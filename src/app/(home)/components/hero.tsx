@@ -122,7 +122,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div>
+        <div className="pt-20">
           <Terminal key={language} />
         </div>
       </div>
