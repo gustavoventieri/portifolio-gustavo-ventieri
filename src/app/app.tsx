@@ -66,7 +66,7 @@ export const App = ({ children }: { children: React.ReactNode }) => {
       <body className="min-h-full flex flex-col " suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="light">
           <Header />
-          <main className="flex-1 pt-20 lg:pt-0">{children}</main>
+          <main className="flex-1">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>
