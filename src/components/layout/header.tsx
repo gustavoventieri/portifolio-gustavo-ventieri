@@ -23,7 +23,7 @@ export function Header() {
   return (
     // Fundo com opacidade via arbitrary value, já que precisa de rgba dinâmico (não dá pra fazer só com CSS var)
     <header
-      className={`fixed top-0 left-0 right-0 z-50 border-b border-(--border) backdrop-blur-md ${
+      className={`fixed top-0 left-0 right-0 z-50 border-b border-(--border) backdrop-blur-md   ${
         isDark ? "bg-[rgba(22,23,29,0.92)]" : "bg-[rgba(255,255,255,0.92)]"
       }`}
     >
@@ -72,7 +72,7 @@ export function Header() {
         >
           {/* Fundo cinza que desliza entre PT/EN */}
           <span
-            className={`absolute top-0.75 h-[calc(100%-6px)] w-[calc(50%-2px)] rounded bg-[#808080] opacity-[0.12] transition-all duration-250 ease-out ${
+            className={`absolute top-0.75 h-[calc(100%-6px)] w-[calc(50%-2px)] rounded bg-[#808080] opacity-[0.12] transition-all duration-400 ease-out ${
               language === "pt" ? "left-0.75" : "left-[calc(50%-1px)]"
             }`}
           />
