@@ -3,6 +3,7 @@
 import { SectionHeading } from "@/components/ui/section-heading";
 import { useLanguage } from "@/contexts/language-contexts";
 import { experienceData } from "@/data/profissional-experience";
+
 export function Experience() {
   const { language } = useLanguage();
   const { title, description, items } = experienceData[language];
@@ -14,68 +15,30 @@ export function Experience() {
     >
       <SectionHeading label={description} title={title} />
 
-      <div className="relative flex flex-col gap-0" style={{ paddingLeft: 23 }}>
-        <div
-          style={{
-            position: "absolute",
-            left: 5,
-            top: 8,
-            bottom: 8,
-            width: 1,
-            background: "var(--border)",
-          }}
-        />
+      <div className="relative flex flex-col gap-0 pl-5.75">
+        <div className="absolute left-1.25 top-2 bottom-2 w-px bg-(--border)" />
 
         {items.map((e, i) => (
           <div
             key={i}
-            className="relative flex flex-col gap-2"
-            style={{ paddingBottom: i < items.length - 1 ? 40 : 0 }}
+            className={`relative flex flex-col gap-2 ${
+              i < items.length - 1 ? "pb-10" : "pb-0"
+            }`}
           >
-            <div
-              className="timeline-dot"
-              style={{
-                position: "absolute",
-                left: -23,
-                top: 5,
-                width: 11,
-                height: 11,
-                borderRadius: "50%",
-              }}
-            />
+            <div className="timeline-dot absolute -left-5.75 top-1.25 w-2.75 h-2.75 rounded-full" />
 
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-              <span
-                style={{
-                  fontWeight: 600,
-                  color: "var(--heading)",
-                  fontSize: "0.95rem",
-                }}
-              >
+              <span className="font-semibold text-[0.95rem] text-(--heading)">
                 {e.role}
               </span>
-              <span
-                style={{
-                  color: "var(--accent)",
-                  fontWeight: 500,
-                  fontSize: "0.875rem",
-                }}
-              >
+              <span className="font-medium text-sm text-(--accent)">
                 @ {e.company}
               </span>
             </div>
-            <p className="mono text-xs" style={{ color: "var(--muted)" }}>
-              {e.period}
-            </p>
-            <p
-              style={{
-                fontSize: "0.875rem",
-                lineHeight: 1.75,
-                color: "var(--fg)",
-                maxWidth: 640,
-                textAlign: "justify",
-              }}
-            >
+
+            <p className="mono text-xs text-(--muted)">{e.period}</p>
+
+            <p className="text-sm leading-[1.75] text-(--fg) max-w-160 text-justify">
               {e.description}
             </p>
           </div>
