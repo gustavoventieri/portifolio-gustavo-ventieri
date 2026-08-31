@@ -54,13 +54,12 @@ export default function Hero() {
             </p>
           </Reveal>
 
-          <Reveal triggerOnce={false} delay={200}>
+          <Reveal delay={200} className="relative z-20">
             <div className="flex flex-wrap gap-3">
               <a href="#projects" className="btn-primary">
                 {transalatedHeroData.btn01} <ArrowRight size={15} />
               </a>
 
-              {/* Botão de download com dropdown PT/EN */}
               <div className="relative" ref={resumeMenuRef}>
                 <button
                   type="button"
@@ -71,7 +70,7 @@ export default function Hero() {
                 </button>
 
                 {resumeMenuOpen && (
-                  <div className="absolute left-0 top-[calc(100%+8px)] z-20 flex flex-col overflow-hidden rounded-md border border-(--border) bg-white dark:bg-(--card-bg) shadow-lg min-w-45">
+                  <div className="absolute left-0 top-[calc(100%+8px)] z-50 flex flex-col overflow-hidden rounded-md border border-(--border) bg-white dark:bg-(--card-bg) shadow-lg min-w-45">
                     <a
                       href="/assets/curriculo-gustavo-ventieri-pt.pdf"
                       download
