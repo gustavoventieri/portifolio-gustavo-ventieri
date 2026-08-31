@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { LanguageProvider } from "@/contexts/language-contexts";
 import { App } from "./app";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Gustavo Ventieri | Software Engineer",
@@ -32,6 +33,7 @@ export default function RootLayout({
   return (
     <LanguageProvider>
       <App>{children}</App>
+      <Analytics />
     </LanguageProvider>
   );
 }
