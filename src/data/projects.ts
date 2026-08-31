@@ -10,12 +10,12 @@ export const projectsSectionData: Record<Languages, ProjectsSectionType> = {
   pt: {
     s3Title: "Projetos",
     s3Github: "Ver no GitHub",
-    s3SubTitle: "// 02. Artefatos & Projetos",
+    s3SubTitle: "// 03. Artefatos & Projetos",
   },
   en: {
     s3Title: "Projects",
     s3Github: "View on GitHub",
-    s3SubTitle: "// 02. Artifacts & Projects",
+    s3SubTitle: "// 03. Artifacts & Projects",
   },
 };
 

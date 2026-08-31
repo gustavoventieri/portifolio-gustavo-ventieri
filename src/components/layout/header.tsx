@@ -28,14 +28,14 @@ export function Header() {
       }`}
     >
       <div className="max-w-400 mx-auto flex items-center h-14 gap-6 px-4 md:px-6">
-        <a href="#hero" className="font-mono mt-2 text-sm text-(--accent)">
-          gustavo@archlinux
+        <a href="#hero" className="font-mono mt-2 text-sm text-(--accent) flex">
+          gustavo@arch<span className="hidden md:flex">linux</span>
         </a>
 
         <div className="flex-1" />
 
         {/* Nav — direita (desktop) */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden lg:flex items-center gap-6">
           {items.map((item) => {
             const id = item.href.replace("#", "");
             const isActive = activeId === id;
@@ -62,7 +62,7 @@ export function Header() {
           })}
         </nav>
 
-        <div className="hidden md:block w-px h-5 bg-(--border)" />
+        <div className="hidden lg:block w-px h-5 bg-(--border)" />
 
         {/* Toggle de idioma — segmented control com fundo deslizante */}
         <button
