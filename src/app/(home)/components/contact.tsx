@@ -15,7 +15,12 @@ export function Contact() {
   const { language } = useLanguage();
   const { label, title, description, badge, heading, items, text } =
     contactPageData[language];
-
+  function formatDisplayPath(path: string) {
+    return path
+      .replace(/^https?:\/\//, "") // remove http:// ou https://
+      .replace(/^www\./, "") // remove www.
+      .replace(/\/$/, ""); // remove barra final, se tiver
+  }
   return (
     <section
       id="contact"
@@ -90,7 +95,7 @@ export function Contact() {
                   href={getHref(contact)}
                   target={contact.name === "Email" ? undefined : "_blank"}
                   rel={contact.name === "Email" ? undefined : "noopener"}
-                  className="flex items-center gap-3.5 px-4.5 py-3.5 bg-(--card-bg) border border-(--border) rounded-lg no-underline transition-[border-color,transform] duration-200 hover:border-(--accent) hover:translate-x-1 h-full project-card"
+                  className="flex items-center gap-3 md:gap-3.5 px-2.5 md:px-4.5  py-3.5 bg-(--card-bg) border border-(--border) rounded-lg no-underline transition-[border-color,transform] duration-200 hover:border-(--accent) hover:translate-x-1 h-full project-card"
                 >
                   <span className="text-(--accent)">
                     <Icon size={18} />
@@ -99,11 +104,11 @@ export function Contact() {
                     <p className="mono text-xs mb-0.5 text-(--muted)">
                       {contact.name}
                     </p>
-                    <p className="text-sm text-(--heading) font-medium">
-                      {contact.path}
+                    <p className="text-sm text-(--heading) font-medium truncate">
+                      {formatDisplayPath(contact.path)}
                     </p>
                   </div>
-                  <span className="ml-auto text-(--muted) icon-link">
+                  <span className="ml-auto text-(--muted) icon-link hidden md:flex">
                     <ExternalLink size={18} />
                   </span>
                 </a>

@@ -58,35 +58,31 @@ export const academicData: Record<Languages, ExperienceSection> = {
   },
 };
 
-export const eventeData = [
+export interface EventItem {
+  url: string;
+  title: string;
+  desc: string;
+}
+
+export const eventeData: EventItem[] = [
   {
-    url: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=900&h=600&fit=crop&auto=format",
-    title: "Campus Party 2023",
-    desc: "Palestra sobre arquitetura de microsserviços para mais de 500 pessoas em São Paulo.",
+    url: "/assets/feira-tec.jpeg",
+    title: "Oficina de Android Studio e Firebase",
+    desc: "Ainda no ensino médio, ministrei como voluntário uma oficina de Android Studio (Kotlin) e Firebase Firestore na FATEC Zona Leste.",
   },
   {
-    url: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=900&h=600&fit=crop&auto=format",
-    title: "The Developers Conference 2022",
-    desc: "Apresentei o projeto StreamFlow no track de backend da maior conf de devs do Brasil.",
+    url: "/assets/ibm.jpeg",
+    title: "Apresentação do TCC — Second Vision",
+    desc: "Apresentei em inglês, nas instalações da IBM, o Second Vision: um sistema de auxílio à autonomia para pessoas com deficiência visual em áreas metropolitanas, com o time Nickolas, Pedro e Tiago.",
   },
   {
-    url: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=900&h=600&fit=crop&auto=format",
-    title: "GopherCon Brasil 2023",
-    desc: "Workshop de performance em Go com foco em profiling e otimização de alocações.",
+    url: "/assets/feteps.jpeg",
+    title: "Feira Tecnológica do Centro Paula Souza",
+    desc: "Levei o Second Vision à Feteps ao lado do Tiago e do Pedro e conquistamos o 2º lugar no ranking geral — fomos contemplados com um intercâmbio para o Reino Unido.",
   },
   {
-    url: "https://images.unsplash.com/photo-1582192730841-2a682d7375f9?w=900&h=600&fit=crop&auto=format",
-    title: "DevOps Days 2022",
-    desc: "Participação no painel sobre cultura DevOps em empresas de médio porte.",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=900&h=600&fit=crop&auto=format",
-    title: "AWS re:Invent 2021",
-    desc: "Networking internacional e workshops hands-on de arquitetura cloud em Las Vegas.",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1632910121591-29e2484c0259?w=900&h=600&fit=crop&auto=format",
-    title: "Hackathon iFood 2022",
-    desc: "1º lugar com solução de otimização de rotas de entrega implementada em Go + Redis.",
+    url: "/assets/sao-paulo-innovation.jpeg",
+    title: "São Paulo Innovation Week",
+    desc: "Representei o Centro Paula Souza na SP Innovation Week no stand do Governo Federal (e-Gov), apresentando o Second Vision e sua proposta de detecção de objetos e leitura de placas para pessoas com deficiência visual.",
   },
 ];

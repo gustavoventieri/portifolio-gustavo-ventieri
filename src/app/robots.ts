@@ -6,6 +6,9 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://www.gustavoventieri.com.br/sitemap.xml",
+    sitemap: [
+      "https://www.gustavoventieri.com.br/sitemap.xml",
+      "https://gustavoventieri.com.br/sitemap.xml",
+    ],
   };
 }
