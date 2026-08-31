@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { MobileNav } from "@/components/layout/mobile-navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -67,6 +68,7 @@ export const App = ({ children }: { children: React.ReactNode }) => {
         <ThemeProvider attribute="class" defaultTheme="light">
           <Header />
           <main className="flex-1">{children}</main>
+          <MobileNav />
           <Footer />
         </ThemeProvider>
       </body>

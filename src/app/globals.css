@@ -46,6 +46,17 @@ body {
 }
 
 html {
+  scroll-padding-top: 5rem; /* fallback, caso o navegador use o scroller em vez do target */
+}
+
+/* Compensa o header fixed (h-14 = 56px) na navegação por âncora.
+   Aplicado direto na section (o "target"), que é mais confiável entre
+   navegadores do que depender de qual elemento é o scroll container. */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+html {
   overflow-x: hidden;
 }
 

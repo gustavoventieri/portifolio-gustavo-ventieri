@@ -16,7 +16,7 @@ export interface ExperienceSection {
 export const experienceData: Record<Languages, ExperienceSection> = {
   pt: {
     title: "Trajetória profissional",
-    description: "// 03. Profissional",
+    description: "// 02. Profissional",
     items: [
       {
         company: "InPower Br",
@@ -36,7 +36,7 @@ export const experienceData: Record<Languages, ExperienceSection> = {
   },
   en: {
     title: "Professional Journey",
-    description: "// 03. Professional",
+    description: "// 02. Professional",
     items: [
       {
         company: "InPower Br",
