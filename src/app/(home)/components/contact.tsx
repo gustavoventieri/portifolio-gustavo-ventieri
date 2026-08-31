@@ -9,7 +9,7 @@ import {
   contactPageData,
   getHref,
 } from "@/data/contact";
-import { Clock, ExternalLink, MapPin, Zap } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 export function Contact() {
   const { language } = useLanguage();
@@ -34,7 +34,7 @@ export function Contact() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-stretch">
         {/* Card de status */}
         <Reveal triggerOnce={false} direction="right" className="h-full">
-          <div className="bg-(--card-bg) border border-(--border) rounded-lg p-6 flex flex-col gap-5 h-full">
+          <div className="bg-(--card-bg) border border-(--border) rounded-lg p-6 flex flex-col gap-5 h-full project-card">
             <div className="flex items-center gap-2">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75" />
@@ -52,7 +52,7 @@ export function Contact() {
               <p className="text-sm leading-[1.7] text-(--fg)">{text}</p>
             </div>
 
-            <div className="flex flex-col gap-3 pt-2 border-t border-(--border) mt-auto">
+            <div className="flex flex-col gap-3 pt-2 border-t border-(--border) mt-auto ">
               {items.map((item) => {
                 const Icon = item.icon;
                 return (
@@ -90,7 +90,7 @@ export function Contact() {
                   href={getHref(contact)}
                   target={contact.name === "Email" ? undefined : "_blank"}
                   rel={contact.name === "Email" ? undefined : "noopener"}
-                  className="flex items-center gap-3.5 px-4.5 py-3.5 bg-(--card-bg) border border-(--border) rounded-lg no-underline transition-[border-color,transform] duration-200 hover:border-(--accent) hover:translate-x-1 h-full"
+                  className="flex items-center gap-3.5 px-4.5 py-3.5 bg-(--card-bg) border border-(--border) rounded-lg no-underline transition-[border-color,transform] duration-200 hover:border-(--accent) hover:translate-x-1 h-full project-card"
                 >
                   <span className="text-(--accent)">
                     <Icon size={18} />
@@ -103,8 +103,8 @@ export function Contact() {
                       {contact.path}
                     </p>
                   </div>
-                  <span className="ml-auto text-(--muted)">
-                    <ExternalLink size={13} />
+                  <span className="ml-auto text-(--muted) icon-link">
+                    <ExternalLink size={18} />
                   </span>
                 </a>
               </Reveal>
