@@ -20,6 +20,8 @@ const jsonLd = {
   "@type": "Person",
   name: "Gustavo Ventieri",
   url: "https://www.gustavoventieri.com.br",
+  image: "https://www.gustavoventieri.com.br/assets/android-chrome-512x512.png",
+  logo: "https://www.gustavoventieri.com.br/assets/android-chrome-512x512.png",
   jobTitle: "Software Engineer",
   description:
     "Engenheiro de software com foco no desenvolvimento de aplicações escaláveis e na entrega de projetos.",
