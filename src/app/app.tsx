@@ -57,6 +57,22 @@ export const App = ({ children }: { children: React.ReactNode }) => {
       suppressHydrationWarning
     >
       <head>
+        <link rel="icon" href="/assets/favicon.ico" sizes="any" />
+        <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/assets/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/assets/favicon-16x16.png"
+        />
+        <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+        <link rel="manifest" href="/assets/site.webmanifest" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
